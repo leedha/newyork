@@ -17,7 +17,7 @@
                   <v-expansion-panel-header>
                     <v-row no-gutters>
                       <v-col>소재지</v-col>
-                      <v-col>-</v-col>
+                      <v-col>--</v-col>
                     </v-row>
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>조정대상지역</v-expansion-panel-content>
