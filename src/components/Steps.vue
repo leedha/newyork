@@ -107,7 +107,7 @@
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-btn color="primary" @click="e6 = 3">다음</v-btn>
+                  <v-btn color="primary" @click="(e6 = 3), persist();">다음</v-btn>
                   <v-btn @click="e6 = 1">취소</v-btn>
                 </v-card-actions>
               </v-card>
@@ -145,7 +145,7 @@
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-btn color="primary" @click="e6 = 4">다음</v-btn>
+                  <v-btn color="primary" @click="(e6 = 4), persist();">다음</v-btn>
                   <v-btn @click="e6 = 2">취소</v-btn>
                 </v-card-actions>
               </v-card>
@@ -260,20 +260,20 @@ const currencyMask = createNumberMask({
 export default {
   data: () => ({
     e6: 1,
-    sellDate: "",
-    buyDate: "",
     mask: currencyMask,
+
     sellPrice: "",
-    buyPrice: ""
+    sellDate: "",
+
+    buyPrice: "",
+    buyDate: ""
+
     /*houseType: "",
     sellOneHouse: "",
     aHouseForFamily: "",
     live2yrs: "",
     controlArea: "",
-    sellPrice: "",
-    buyPrice: "",
-    sellDate: "",
-    buyDate: "",
+    
     saleTax: "",
     legalCost: "",
     brokerFeeBuy: "",
@@ -281,17 +281,48 @@ export default {
     bondLoss: "",
     repairCost: "",
     jointName: ""*/
-  })
-  /*data() {
-    return {
-      e6: 1
-    };
-  }*/
+  }),
+
   /*watch: {
     sellPrice: (sellPrice, oldSellPrice) => {
-      console.log(`sellPrice: ${sellPrice}`);
+      //console.log(`sellPrice: ${sellPrice}`);
       localStorage.sellPrice = sellPrice;
+    },
+    buyPrice: (buyPrice, oldBuyPrice) => {
+      localStorage.buyPrice = buyPrice;
+    },
+
+    sellDate: (sellDate, oldSellDate) => {
+      localStorage.sellDate = sellDate;
+    },
+    buyDate: (buyDate, oldBuyDate) => {
+      localStorage.buyDate = buyDate;
     }
-  }*/
+  },*/
+
+  mounted() {
+    if (localStorage.sellPrice) {
+      this.sellPrice = localStorage.sellPrice;
+    }
+    if (localStorage.sellDate) {
+      this.sellDate = localStorage.sellDate;
+    }
+
+    if (localStorage.buyPrice) {
+      this.buyPrice = localStorage.buyPrice;
+    }
+    if (localStorage.buyDate) {
+      this.buyDate = localStorage.buyDate;
+    }
+  },
+  methods: {
+    persist() {
+      localStorage.sellPrice = this.sellPrice;
+      localStorage.sellDate = this.sellDate;
+
+      localStorage.buyPrice = this.buyPrice;
+      localStorage.buyDate = this.buyDate;
+    }
+  }
 };
 </script>

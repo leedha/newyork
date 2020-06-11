@@ -124,7 +124,7 @@
             <v-expand-transition>
               <div v-show="show5">
                 <v-simple-table dense class="elevation-1 mb-5">
-                  <tbody>
+                  <thead>
                     <tr>
                       <th colspan="3" class="text-center bg-gr-l4">서울</th>
                     </tr>
@@ -133,11 +133,15 @@
                       <th>지정공고일</th>
                       <th>해제공고일</th>
                     </tr>
+                  </thead>
+                  <tbody>
                     <tr>
                       <th>전체</th>
                       <th>2017.9.6</th>
                       <th class="text-center">-</th>
                     </tr>
+                  </tbody>
+                  <thead>
                     <tr>
                       <th colspan="3" class="text-center bg-gr-l4">부산</th>
                     </tr>
@@ -146,6 +150,8 @@
                       <th>지정공고일</th>
                       <th>해제공고일</th>
                     </tr>
+                  </thead>
+                  <tbody>
                     <tr>
                       <th>해운대구</th>
                       <th>2017.9.6</th>
@@ -186,6 +192,8 @@
                       <th>2017.9.6</th>
                       <th>2018.12.31</th>
                     </tr>
+                  </tbody>
+                  <thead>
                     <tr>
                       <th colspan="3" class="text-center bg-gr-l4">경기</th>
                     </tr>
@@ -194,6 +202,8 @@
                       <th>지정공고일</th>
                       <th>해제공고일</th>
                     </tr>
+                  </thead>
+                  <tbody>
                     <tr>
                       <th>과천시</th>
                       <th>2017.9.6</th>
@@ -284,6 +294,8 @@
                       <th>2020.2.21</th>
                       <th class="text-center">-</th>
                     </tr>
+                  </tbody>
+                  <thead>
                     <tr>
                       <th colspan="3" class="text-center bg-gr-l4">세종</th>
                     </tr>
@@ -292,6 +304,8 @@
                       <th>지정공고일</th>
                       <th>해제공고일</th>
                     </tr>
+                  </thead>
+                  <tbody>
                     <tr>
                       <th>연기군 금남면</th>
                       <th>2017.9.6</th>

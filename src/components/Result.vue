@@ -30,17 +30,17 @@
                       <v-col>{{sellPrice}}</v-col>
                     </v-row>
                   </v-expansion-panel-header>
-                  <v-expansion-panel-content>양도일자:</v-expansion-panel-content>
+                  <v-expansion-panel-content>양도일자 {{sellDate}}</v-expansion-panel-content>
                 </v-expansion-panel>
 
                 <v-expansion-panel>
                   <v-expansion-panel-header>
-                    <v-row no-gutter>
+                    <v-row no-gutters>
                       <v-col>취득가액</v-col>
-                      <v-col>-</v-col>
+                      <v-col>{{buyPrice}}</v-col>
                     </v-row>
                   </v-expansion-panel-header>
-                  <v-expansion-panel-content>취득일자:</v-expansion-panel-content>
+                  <v-expansion-panel-content>취득일자 {{buyDate}}</v-expansion-panel-content>
                 </v-expansion-panel>
 
                 <v-expansion-panel>
@@ -311,7 +311,7 @@
                     <v-simple-table dense class="elevation-1 mb-5">
                       <thead>
                         <tr class="bg-gr-l4">
-                          <th colspan="2">※ 분양권</th>
+                          <th colspan="2">※ 분양권 (조정대상지역은 분양권 전매 금지)</th>
                         </tr>
                         <tr class="bg-gr-l5">
                           <th>보유기간</th>
@@ -330,9 +330,6 @@
                         <tr>
                           <th>2년이상</th>
                           <th>기본세율</th>
-                        </tr>
-                        <tr>
-                          <th colspan="2">조정대상지역은 분양권 전매 금지</th>
                         </tr>
                       </tbody>
                     </v-simple-table>
@@ -407,6 +404,11 @@ th {
 export default {
   mounted: function() {
     const sellPrice = localStorage.getItem("sellPrice");
+    const sellDate = localStorage.getItem("sellDate");
+
+    const buyPrice = localStorage.getItem("buyPrice");
+    const buyDate = localStorage.getItem("buyDate");
+
     if (sellPrice) {
       /*try {
         this.sellPrice = JSON.parse(localStorage.getItem("sellPrice"));
@@ -415,9 +417,23 @@ export default {
       }*/
       this.sellPrice = sellPrice;
     }
+    if (sellDate) {
+      this.sellDate = sellDate;
+    }
+
+    if (buyPrice) {
+      this.buyPrice = buyPrice;
+    }
+    if (buyDate) {
+      this.buyDate = buyDate;
+    }
   },
   data: () => ({
-    sellPrice: ""
+    sellPrice: "",
+    buyPrice: "",
+
+    sellDate: "",
+    buyDate: ""
   })
 };
 </script>
