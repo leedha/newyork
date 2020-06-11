@@ -50,11 +50,15 @@
                       <v-col>-</v-col>
                     </v-row>
                   </v-expansion-panel-header>
-                  <v-expansion-panel-content>취득세: 원
-                    <br>법무사비: 원
-                    <br>중개수수료: 원 (취득 + 양도)
-                    <br>국민주택채권 매각차손: 원
-                    <br>수리비: 원
+                  <v-expansion-panel-content>취득세 원
+                    <br>
+                    법무사비 {{legalCost}}원
+                    <br>중개수수료 원 (취득 + 양도)
+                    <br>
+                    국민주택채권 매각차손 {{bondLoss}}원
+                    <br>
+                    수리비 {{repairCost}}원
+                    <br>합계 원
                   </v-expansion-panel-content>
                 </v-expansion-panel>
 
@@ -402,12 +406,28 @@ th {
 
 <script>
 export default {
-  mounted: function() {
+  data: () => ({
+    sellPrice: "",
+    buyPrice: "",
+
+    sellDate: "",
+    buyDate: "",
+
+    legalCost: "",
+    repairCost: "",
+    bondLoss: ""
+  }),
+
+  mounted() {
     const sellPrice = localStorage.getItem("sellPrice");
     const sellDate = localStorage.getItem("sellDate");
 
     const buyPrice = localStorage.getItem("buyPrice");
     const buyDate = localStorage.getItem("buyDate");
+
+    const legalCost = localStorage.getItem("legalCost");
+    const repairCost = localStorage.getItem("repairCost");
+    const bondLoss = localStorage.getItem("bondLoss");
 
     if (sellPrice) {
       /*try {
@@ -427,13 +447,16 @@ export default {
     if (buyDate) {
       this.buyDate = buyDate;
     }
-  },
-  data: () => ({
-    sellPrice: "",
-    buyPrice: "",
 
-    sellDate: "",
-    buyDate: ""
-  })
+    if (legalCost) {
+      this.legalCost = legalCost;
+    }
+    if (repairCost) {
+      this.repairCost = repairCost;
+    }
+    if (bondLoss) {
+      this.bondLoss = bondLoss;
+    }
+  }
 };
 </script>

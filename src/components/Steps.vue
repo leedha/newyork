@@ -101,13 +101,13 @@
                     label="양도가액 입력"
                     prefix="₩"
                     outlined
-                    v-mask="mask"
+                    v-mask="currencyMaskTest()"
                     v-model="sellPrice"
                   ></v-text-field>
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-btn color="primary" @click="(e6 = 3), persist();">다음</v-btn>
+                  <v-btn color="primary" @click="(e6 = 3), step2();">다음</v-btn>
                   <v-btn @click="e6 = 1">취소</v-btn>
                 </v-card-actions>
               </v-card>
@@ -145,7 +145,7 @@
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-btn color="primary" @click="(e6 = 4), persist();">다음</v-btn>
+                  <v-btn color="primary" @click="(e6 = 4), step3();">다음</v-btn>
                   <v-btn @click="e6 = 2">취소</v-btn>
                 </v-card-actions>
               </v-card>
@@ -177,6 +177,7 @@
                     outlined
                     prefix="₩"
                     clearable
+                    v-model="legalCost"
                   ></v-text-field>
                 </v-card-text>
                 <v-card-text>
@@ -207,6 +208,7 @@
                     outlined
                     prefix="₩"
                     clearable
+                    v-model="bondLoss"
                   ></v-text-field>※ [국민주택(1종)채권매출 매입 확인서] 영수증에서 본인부담액 항목
                 </v-card-text>
                 <v-card-text>
@@ -217,6 +219,7 @@
                     outlined
                     prefix="₩"
                     clearable
+                    v-model="repairCost"
                   ></v-text-field>※ 부동산의 수명을 연장시키거나 가치를 상승시키기 위해 지출한 수선비만 가능
                   <br>예1) 발코니 샷시 설치 및 교체비, 방/베란다 확장 공사비, 바닥 시공비, 보일러 교체비 등은 가능
                   <br>예2) 장기수선충당금, 벽지, 장판, 싱크대, 문, 조명, 하수도관 교체비, 외벽 도색비, 보일러 수리비, 옥상 방수 공사비, 타일 및 변기 공사비 등은 불가능
@@ -235,7 +238,7 @@
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-btn color="primary" to="/result">완료</v-btn>
+                  <v-btn color="primary" to="/result" @click.native="step4();">완료</v-btn>
                   <v-btn @click="e6 = 3">취소</v-btn>
                 </v-card-actions>
               </v-card>
@@ -251,10 +254,10 @@
 import createNumberMask from "text-mask-addons/dist/createNumberMask";
 
 const currencyMask = createNumberMask({
-  prefix: "",
-  allowDecimal: true,
-  includeThousandsSeparator: true,
-  allowNegative: false
+  prefix: ""
+  //allowDecimal: true,
+  //includeThousandsSeparator: true,
+  //allowNegative: false
 });
 
 export default {
@@ -266,7 +269,11 @@ export default {
     sellDate: "",
 
     buyPrice: "",
-    buyDate: ""
+    buyDate: "",
+
+    legalCost: "",
+    repairCost: "",
+    bondLoss: ""
 
     /*houseType: "",
     sellOneHouse: "",
@@ -275,34 +282,18 @@ export default {
     controlArea: "",
     
     saleTax: "",
-    legalCost: "",
+    
     brokerFeeBuy: "",
     brokerFeeSell: "",
-    bondLoss: "",
-    repairCost: "",
+    
+    
     jointName: ""*/
   }),
-
-  /*watch: {
-    sellPrice: (sellPrice, oldSellPrice) => {
-      //console.log(`sellPrice: ${sellPrice}`);
-      localStorage.sellPrice = sellPrice;
-    },
-    buyPrice: (buyPrice, oldBuyPrice) => {
-      localStorage.buyPrice = buyPrice;
-    },
-
-    sellDate: (sellDate, oldSellDate) => {
-      localStorage.sellDate = sellDate;
-    },
-    buyDate: (buyDate, oldBuyDate) => {
-      localStorage.buyDate = buyDate;
-    }
-  },*/
 
   mounted() {
     if (localStorage.sellPrice) {
       this.sellPrice = localStorage.sellPrice;
+      //console.log(localStorage.sellPrice);
     }
     if (localStorage.sellDate) {
       this.sellDate = localStorage.sellDate;
@@ -314,14 +305,41 @@ export default {
     if (localStorage.buyDate) {
       this.buyDate = localStorage.buyDate;
     }
-  },
-  methods: {
-    persist() {
-      localStorage.sellPrice = this.sellPrice;
-      localStorage.sellDate = this.sellDate;
 
+    if (localStorage.legalCost) {
+      this.legalCost = localStorage.legalCost;
+      //console.log(localStorage.sellPrice);
+    }
+    if (localStorage.repairCost) {
+      this.repairCost = localStorage.repairCost;
+      //console.log(localStorage.repairCost);
+    }
+    if (localStorage.bondLoss) {
+      this.bondLoss = localStorage.bondLoss;
+    }
+  },
+
+  methods: {
+    currencyMaskTest() {
+      return createNumberMask({
+        prefix: ""
+      });
+    },
+
+    step2() {
+      localStorage.sellPrice = this.sellPrice.replace(/,/g, "");
+      localStorage.sellDate = this.sellDate;
+      console.log(localStorage.sellPrice);
+    },
+    step3() {
       localStorage.buyPrice = this.buyPrice;
       localStorage.buyDate = this.buyDate;
+      //console.log(localStorage.buyPrice);
+    },
+    step4() {
+      localStorage.legalCost = this.legalCost;
+      localStorage.repairCost = this.repairCost;
+      localStorage.bondLoss = this.bondLoss;
     }
   }
 };
