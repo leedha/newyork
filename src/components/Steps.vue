@@ -97,13 +97,14 @@
                 <v-card-title>양도가액</v-card-title>
                 <v-card-subtitle>팔 때 : 계약금 (+ 중도금) + 잔금</v-card-subtitle>
                 <v-card-text>
-                  <v-text-field
+                  <!--<v-text-field
                     label="양도가액 입력"
                     prefix="₩"
                     outlined
-                    v-mask="currencyMaskTest()"
+                    v-mask="mask"
                     v-model="sellPrice"
-                  ></v-text-field>
+                  ></v-text-field>-->
+                  <v-text-field label="양도가액 입력" prefix="₩" outlined v-model="sellPrice" clearable></v-text-field>
                 </v-card-text>
 
                 <v-card-actions>
@@ -135,13 +136,7 @@
                 <v-card-title>취득가액</v-card-title>
                 <v-card-subtitle>살 때 : 계약금 (+ 중도금) + 잔금</v-card-subtitle>
                 <v-card-text>
-                  <v-text-field
-                    label="취득가액 입력"
-                    prefix="₩"
-                    outlined
-                    v-mask="mask"
-                    v-model="buyPrice"
-                  ></v-text-field>
+                  <v-text-field label="취득가액 입력" prefix="₩" outlined v-model="buyPrice" clearable></v-text-field>
                 </v-card-text>
 
                 <v-card-actions>
@@ -293,7 +288,7 @@ export default {
   mounted() {
     if (localStorage.sellPrice) {
       this.sellPrice = localStorage.sellPrice;
-      //console.log(localStorage.sellPrice);
+      //console.log(this.sellPrice);
     }
     if (localStorage.sellDate) {
       this.sellDate = localStorage.sellDate;
@@ -320,16 +315,10 @@ export default {
   },
 
   methods: {
-    currencyMaskTest() {
-      return createNumberMask({
-        prefix: ""
-      });
-    },
-
     step2() {
-      localStorage.sellPrice = this.sellPrice.replace(/,/g, "");
+      localStorage.sellPrice = this.sellPrice; //.replace(/,/g, ""); //remove comma
       localStorage.sellDate = this.sellDate;
-      console.log(localStorage.sellPrice);
+      //console.log(this.sellPrice);
     },
     step3() {
       localStorage.buyPrice = this.buyPrice;
@@ -341,6 +330,8 @@ export default {
       localStorage.repairCost = this.repairCost;
       localStorage.bondLoss = this.bondLoss;
     }
-  }
+  },
+
+  watch: {}
 };
 </script>

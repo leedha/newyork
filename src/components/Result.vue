@@ -27,7 +27,7 @@
                   <v-expansion-panel-header>
                     <v-row no-gutters>
                       <v-col>양도가액</v-col>
-                      <v-col>{{sellPrice}}</v-col>
+                      <v-col>₩ {{sellPrice}}원</v-col>
                     </v-row>
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>양도일자 {{sellDate}}</v-expansion-panel-content>
@@ -37,7 +37,7 @@
                   <v-expansion-panel-header>
                     <v-row no-gutters>
                       <v-col>취득가액</v-col>
-                      <v-col>{{buyPrice}}</v-col>
+                      <v-col>₩ {{buyPrice}}원</v-col>
                     </v-row>
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>취득일자 {{buyDate}}</v-expansion-panel-content>
@@ -147,7 +147,7 @@
                       <thead>
                         <tr class="bg-gr-l4">
                           <th colspan="2">1세대1주택 9억 초과 주택
-                            <br>( 2년 이상 거주시 9억초과분에 한해서)
+                            <br>(2년 이상 거주시 9억초과분에 한해서)
                           </th>
                         </tr>
                         <tr class="bg-gr-l5">
@@ -289,7 +289,7 @@
                     <v-simple-table dense class="elevation-1 mb-5">
                       <thead>
                         <tr class="bg-gr-l4">
-                          <th colspan="2">※ (조합원) 입주권</th>
+                          <th colspan="2">(조합원) 입주권 (2021년부터 변동됨)</th>
                         </tr>
                         <tr class="bg-gr-l5">
                           <th>보유기간</th>
@@ -315,7 +315,7 @@
                     <v-simple-table dense class="elevation-1 mb-5">
                       <thead>
                         <tr class="bg-gr-l4">
-                          <th colspan="2">※ 분양권 (조정대상지역은 분양권 전매 금지)</th>
+                          <th colspan="2">분양권 (2021년 동일)</th>
                         </tr>
                         <tr class="bg-gr-l5">
                           <th>보유기간</th>
@@ -334,6 +334,9 @@
                         <tr>
                           <th>2년이상</th>
                           <th>기본세율</th>
+                        </tr>
+                        <tr>
+                          <th colspan="2">※ 조정대상지역은 분양권 전매 금지</th>
                         </tr>
                       </tbody>
                     </v-simple-table>
