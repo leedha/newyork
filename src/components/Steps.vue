@@ -208,6 +208,8 @@
                     pattern="\d*"
                     v-model="buyTax"
                   ></v-text-field>
+                  <v-btn @click="autoCal('tax')">자동계산(전용 85㎡ 이하 주택)</v-btn>
+                  <v-btn>자동계산(전용 85㎡ 초과 주택)</v-btn>
                 </v-card-text>
                 <v-card-text>
                   <v-text-field
@@ -230,8 +232,9 @@
                     prefix="₩"
                     clearable
                     pattern="\d*"
-                    v-model="brokerFee1"
+                    v-model="brokerFeeBuy"
                   ></v-text-field>
+                  <v-btn @click="autoCal('brokerFeeBuy')">자동계산</v-btn>
                 </v-card-text>
                 <v-card-text>
                   <v-text-field
@@ -242,8 +245,9 @@
                     prefix="₩"
                     clearable
                     pattern="\d*"
-                    v-model="brokerFee2"
+                    v-model="brokerFeeSell"
                   ></v-text-field>
+                  <v-btn @click="autoCal('brokerFeeSell')">자동계산</v-btn>
                 </v-card-text>
                 <v-card-text>
                   <v-text-field
@@ -299,8 +303,11 @@
 
 <script>
 import createNumberMask from "text-mask-addons/dist/createNumberMask";
-import { connect } from "net";
+
 //import CurrencyTextField from "./CurrencyTextField.vue";
+
+import taxHelper from "../utils/taxHelper";
+import brokerFeeHelper from "../utils/brokerFeeHelper";
 
 const currencyMask = createNumberMask({
   prefix: ""
@@ -323,18 +330,18 @@ export default {
     houseCnt: "",
     livePeriod: "",
 
-    sellPrice: "",
+    sellPrice: 0,
     sellDate: "",
 
-    buyPrice: "",
+    buyPrice: 0,
     buyDate: "",
 
-    buyTax: "",
-    legalCost: "",
-    brokerFee1: "",
-    brokerFee2: "",
-    bondLoss: "",
-    repairCost: "",
+    buyTax: 0,
+    legalCost: 0,
+    brokerFeeBuy: 0,
+    brokerFeeSell: 0,
+    bondLoss: 0,
+    repairCost: 0,
     joint: ""
   }),
 
@@ -377,11 +384,11 @@ export default {
     if (localStorage.legalCost) {
       this.legalCost = localStorage.legalCost;
     }
-    if (localStorage.brokerFee1) {
-      this.brokerFee1 = localStorage.brokerFee1;
+    if (localStorage.brokerFeeBuy) {
+      this.brokerFeeBuy = localStorage.brokerFeeBuy;
     }
-    if (localStorage.brokerFee2) {
-      this.brokerFee2 = localStorage.brokerFee2;
+    if (localStorage.brokerFeeSell) {
+      this.brokerFeeSell = localStorage.brokerFeeSell;
     }
     if (localStorage.bondLoss) {
       this.bondLoss = localStorage.bondLoss;
@@ -395,40 +402,6 @@ export default {
   },
 
   methods: {
-    //중개수수료 자동 계산
-    brokerFee(amount) {
-      if (amount < 50000000) {
-        if (amount * 0.006 > 250000) {
-          return 250000;
-        } else {
-          return amount * 0.006;
-        }
-      } else if (amount < 200000000) {
-        if (amount * 0.005 > 800000) {
-          return 800000;
-        } else {
-          return amount * 0.005;
-        }
-      } else if (amount < 600000000) {
-        return amount * 0.004;
-      } else if (amount < 900000000) {
-        return amount * 0.005;
-      } else {
-        return amount * 0.009;
-      }
-    },
-
-    tax(amount) {
-      //취득세 자동 계산 (85m 이상은 1.3% 2.4% 3.5%)
-      if (amount < 600000000) {
-        return amount * 0.01;
-      } else if (amount > 900000000) {
-        return amount * 0.033;
-      } else {
-        return amount * 0.022;
-      }
-    },
-
     step1() {
       localStorage.sellType = this.sellType;
       localStorage.sellCnt = this.sellCnt;
@@ -436,32 +409,31 @@ export default {
       localStorage.livePeriod = this.livePeriod;
     },
     step2() {
-      //양도 중개 수수료 자동 계산
-      //if (localStorage.sellPrice !== this.sellPrice) { //유저가 새로 입력한 경우
-
-      this.brokerFee2 = this.brokerFee(this.sellPrice);
-      //}
       localStorage.sellPrice = this.sellPrice; //.replace(/,/g, ""); //remove comma
       localStorage.sellDate = this.sellDate;
     },
     step3() {
-      // 취득세, 취득 중개 수수료 자동 계산
-      //if (localStorage.buyPrice !== this.buyPrice) { //유저가 새로 입력한 경우
-
-      this.buyTax = this.tax(this.buyPrice);
-      this.brokerFee1 = this.brokerFee(this.buyPrice);
-      //}
       localStorage.buyPrice = this.buyPrice;
       localStorage.buyDate = this.buyDate;
     },
     step4() {
       localStorage.buyTax = this.buyTax;
       localStorage.legalCost = this.legalCost;
-      localStorage.brokerFee1 = this.brokerFee1;
-      localStorage.brokerFee2 = this.brokerFee2;
+      localStorage.brokerFeeBuy = this.brokerFeeBuy;
+      localStorage.brokerFeeSell = this.brokerFeeSell;
       localStorage.bondLoss = this.bondLoss;
       localStorage.repairCost = this.repairCost;
       localStorage.joint = this.joint;
+    },
+
+    autoCal(type) {
+      if (type === "tax") {
+        this.buyTax = taxHelper.tax(this.buyPrice, this.buyDate);
+      } else if (type === "brokerFeeBuy") {
+        this.brokerFeeBuy = brokerFeeHelper.brokerFee(this.buyPrice);
+      } else if (type === "brokerFeeSell") {
+        this.brokerFeeSell = brokerFeeHelper.brokerFee(this.sellPrice);
+      }
     }
   },
 
