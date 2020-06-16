@@ -57,4 +57,12 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
+
+.inputPrice input[type="number"] {
+  -moz-appearance: textfield;
+}
+.inputPrice input::-webkit-outer-spin-button,
+.inputPrice input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 </style>

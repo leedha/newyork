@@ -13,7 +13,12 @@
             <v-card-title primary-title>*1세대1주택이고 2년 이상 보유해야 합니다.</v-card-title>
 
             <v-card-actions>
-              <v-chip outlined color="green darken-1" @click="show1 = !show1">**1세대1주택 이란?</v-chip>
+              <v-chip
+                class="ml-2"
+                color="green"
+                text-color="white"
+                @click="show1 = !show1"
+              >**1세대1주택 이란?</v-chip>
             </v-card-actions>
 
             <v-expand-transition>
@@ -46,8 +51,9 @@
 
             <v-card-actions>
               <v-chip
-                outlined
-                color="green darken-1"
+                class="ml-2"
+                color="green"
+                text-color="white"
                 @click="show2 = !show2"
               >**대체 취득으로 인한 일시적 2주택 이란?</v-chip>
             </v-card-actions>
@@ -72,8 +78,9 @@
 
             <v-card-actions>
               <v-chip
-                outlined
-                color="green darken-1"
+                class="ml-2"
+                color="green"
+                text-color="white"
                 @click="show3 = !show3"
               >**동거 봉양ㆍ혼인으로 인한 2주택 이란?</v-chip>
             </v-card-actions>
@@ -103,7 +110,12 @@
             </v-card-title>
 
             <v-card-actions>
-              <v-chip outlined color="green darken-1" @click="show4 = !show4">**조정대상지역 이란?</v-chip>
+              <v-chip
+                class="ml-2"
+                color="green"
+                text-color="white"
+                @click="show4 = !show4"
+              >**조정대상지역 이란?</v-chip>
             </v-card-actions>
 
             <v-expand-transition>
@@ -118,7 +130,12 @@
             </v-expand-transition>
 
             <v-card-actions>
-              <v-chip outlined color="green darken-1" @click="show5 = !show5">지역별로 **조정대상지역 간단히 보기</v-chip>
+              <v-chip
+                class="ml-2"
+                color="green"
+                text-color="white"
+                @click="show5 = !show5"
+              >지역별로 **조정대상지역 간단히 보기</v-chip>
             </v-card-actions>
 
             <v-expand-transition>
@@ -338,8 +355,9 @@
 
             <v-card-actions>
               <v-chip
-                outlined
-                color="green darken-1"
+                class="ml-2"
+                color="green"
+                text-color="white"
                 @click="show6 = !show6"
               >공고일 순으로 **조정대상지역 자세히 보기</v-chip>
             </v-card-actions>

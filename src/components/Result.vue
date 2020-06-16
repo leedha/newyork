@@ -50,10 +50,12 @@
                       <v-col>-</v-col>
                     </v-row>
                   </v-expansion-panel-header>
-                  <v-expansion-panel-content>취득세 원
+                  <v-expansion-panel-content>
+                    취득세 {{buyTax}}원
                     <br>
                     법무사비 {{legalCost}}원
-                    <br>중개수수료 원 (취득 + 양도)
+                    <br>
+                    중개수수료 원 (취득 {{brokerFee1}}원 + 양도 {{brokerFee2}}원)
                     <br>
                     국민주택채권 매각차손 {{bondLoss}}원
                     <br>
@@ -416,9 +418,12 @@ export default {
     sellDate: "",
     buyDate: "",
 
+    buyTax: "",
     legalCost: "",
-    repairCost: "",
-    bondLoss: ""
+    brokerFee1: "",
+    brokerFee2: "",
+    bondLoss: "",
+    repairCost: ""
   }),
 
   mounted() {
@@ -428,9 +433,13 @@ export default {
     const buyPrice = localStorage.getItem("buyPrice");
     const buyDate = localStorage.getItem("buyDate");
 
+    const buyTax = localStorage.getItem("buyTax");
     const legalCost = localStorage.getItem("legalCost");
-    const repairCost = localStorage.getItem("repairCost");
+    const brokerFee1 = localStorage.getItem("brokerFee1");
+    const brokerFee2 = localStorage.getItem("brokerFee2");
+
     const bondLoss = localStorage.getItem("bondLoss");
+    const repairCost = localStorage.getItem("repairCost");
 
     if (sellPrice) {
       /*try {
@@ -451,14 +460,23 @@ export default {
       this.buyDate = buyDate;
     }
 
+    if (buyTax) {
+      this.buyTax = buyTax;
+    }
     if (legalCost) {
       this.legalCost = legalCost;
     }
-    if (repairCost) {
-      this.repairCost = repairCost;
+    if (brokerFee1) {
+      this.brokerFee1 = brokerFee1;
+    }
+    if (brokerFee2) {
+      this.brokerFee2 = brokerFee2;
     }
     if (bondLoss) {
       this.bondLoss = bondLoss;
+    }
+    if (repairCost) {
+      this.repairCost = repairCost;
     }
   }
 };

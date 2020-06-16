@@ -14,51 +14,71 @@
             <v-stepper-content step="1">
               <v-card>
                 <v-card-title>양도한 물건의 종류</v-card-title>
-                <v-card-subtitle>양도한 물건의 종류에 따라서 세율이 달라집니다.</v-card-subtitle>
+                <v-card-subtitle class="pb-0">양도한 물건의 종류에 따라서 세율이 달라집니다.</v-card-subtitle>
                 <v-card-text>
-                  <v-radio-group dense hide-details>
-                    <v-radio label="주택 입니다."></v-radio>
-                    <v-radio label="분양권 입니다."></v-radio>
-                    <v-radio label="입주권 입니다."></v-radio>
+                  <v-radio-group dense hide-details v-model="sellType">
+                    <v-radio label="주택" value="1"></v-radio>
+                    <v-radio label="분양권" value="2"></v-radio>
+                    <v-radio label="입주권" value="3"></v-radio>
                   </v-radio-group>
                 </v-card-text>
 
-                <v-card-title>동일년도 주택 매각 횟수</v-card-title>
-                <v-card-subtitle>
-                  <v-icon small color="blue darken-2">mdi-check</v-icon>동일년도(1월1일~12월31일까지)에 2채 이상 매각시 합산과세 대상 (그 다음해 5월 확정신고)
+                <v-card-title>동일년도 주택 매각 갯수</v-card-title>
+                <v-card-subtitle class="pb-0">
+                  <v-icon small color="blue darken-2">mdi-check</v-icon>동일년도에 2채 이상 매각시 합산과세 대상
+                  <br>**합산과세란? 동일년도에 매각한 모든 물건을 양도차익을 합산해서 과세 (매년 5월 확정신고 때 합산하여 신고)
                   <br>
-                  <v-icon small color="blue darken-2">mdi-check</v-icon>2번째 매각한 주택이 1세대1주택 요건 충족시 2번째 주택은 비과세이므로 합산과세 대상 아님
+                  <v-icon small color="blue darken-2">mdi-check</v-icon>단, 마지막에 매각한 주택이 1세대1주택 요건 충족시 마지막에 매각한 주택은 비과세이므로 합산과세 대상 아님
                 </v-card-subtitle>
                 <v-card-text>
-                  <v-radio-group dense hide-details>
-                    <v-radio label="1회 매각"></v-radio>
-                    <v-radio label="2회 이상 매각 : 계산 불가"></v-radio>
+                  <v-radio-group dense hide-details :mandatory="false" v-model="sellCnt">
+                    <v-radio label="1회 매각" value="1" @change="alert1 = false"></v-radio>
+                    <v-radio label="2회 이상 매각" value="2" @change="alert1 = true"></v-radio>
                   </v-radio-group>
                 </v-card-text>
 
-                <v-card-title>1세대1주택 or 다주택자</v-card-title>
-                <v-card-subtitle>
-                  <v-icon small color="blue darken-2">mdi-check</v-icon>양도한 물건이 1세대1주택 요건 충족시 비과세 : 계산 필요 없음
+                <v-alert
+                  :value="alert1"
+                  type="info"
+                  transition="scale-transition"
+                >합산과세 대상이므로 계산이 불가 합니다.</v-alert>
+
+                <v-alert
+                  :value="alert1"
+                  dense
+                  color="blue-grey"
+                  dark
+                  border="top"
+                  transition="scale-transition"
+                >단, 마지막에 매각한 물건이 비과세 요건을 충족한다면 비과세이므로 계산할 필요 없습니다.</v-alert>
+
+                <v-card-title>1세대1주택 9억초과 or 다주택자</v-card-title>
+                <v-card-subtitle class="pb-0">
+                  <v-icon small color="blue darken-2">mdi-check</v-icon>1세대1주택 요건 충족했지만 양도가액이 9억 초과인 경우 9억초과분에 한해 과세
                   <br>
-                  <v-icon small color="blue darken-2">mdi-check</v-icon>1세대1주택 요건 충족했지만 양도가액이 9억 초과인 경우 : 9억초과분에 한해 과세
-                  <br>
-                  <v-icon small color="blue darken-2">mdi-check</v-icon>다주택자 : 이익금에 따라서 계산 (조정대상지역인 경우 2020년 7월부터 중과세)
+                  <v-icon small color="blue darken-2">mdi-check</v-icon>다주택자는 이익금에 따라서 계산 (조정대상지역인 경우 2020년 7월부터 중과세)
                 </v-card-subtitle>
                 <v-card-text>
-                  <v-radio-group dense hide-details>
-                    <v-radio label="1세대1주택 9억 이하 : 비과세이므로 계산 필요 없음"></v-radio>
-                    <v-radio label="1세대1주택 9억 초과"></v-radio>
-                    <v-radio label="2주택 이상 다주택자"></v-radio>
-                    <v-radio label="3주택 이상 다주택자"></v-radio>
+                  <v-radio-group dense hide-details v-model="houseCnt">
+                    <v-radio label="1세대1주택 9억 이하" value="1" @change="alert2 = true"></v-radio>
+                    <v-radio label="1세대1주택 9억 초과" value="2" @change="alert2 = false"></v-radio>
+                    <v-radio label="2주택 이상 다주택자" value="3" @change="alert2 = false"></v-radio>
+                    <v-radio label="3주택 이상 다주택자" value="4" @change="alert2 = false"></v-radio>
                   </v-radio-group>
                 </v-card-text>
+
+                <v-alert
+                  :value="alert2"
+                  type="info"
+                  transition="scale-transition"
+                >비과세 대상이므로 계산할 필요 없습니다.</v-alert>
 
                 <v-card-title>실거주 기간</v-card-title>
-                <v-card-subtitle>2년이상 보유하고 주민등록주소지를 2년 이상 유지한 경우 실거주로 인정됩니다.</v-card-subtitle>
+                <v-card-subtitle class="pb-0">2년이상 보유하고 주민등록주소지를 2년 이상 유지한 경우 실거주로 인정됩니다.</v-card-subtitle>
                 <v-card-text>
-                  <v-radio-group dense hide-details>
-                    <v-radio label="2년 이상 거주"></v-radio>
-                    <v-radio label="2년 미만 거주"></v-radio>
+                  <v-radio-group dense hide-details v-model="livePeriod">
+                    <v-radio label="2년 미만 거주" value="1"></v-radio>
+                    <v-radio label="2년 이상 거주" value="2"></v-radio>
                   </v-radio-group>
                 </v-card-text>
 
@@ -69,8 +89,8 @@
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-btn color="primary" @click="e6 = 2">다음</v-btn>
-                  <v-btn to="/ahead">취소</v-btn>
+                  <v-btn min-width="48%" color="primary" @click="e6 = 2, step1();">다음</v-btn>
+                  <v-btn min-width="48%" to="/ahead">취소</v-btn>
                 </v-card-actions>
               </v-card>
             </v-stepper-content>
@@ -91,6 +111,7 @@
                     persistent-hint
                     v-mask="'####-##-##'"
                     v-model="sellDate"
+                    hide-details
                   ></v-text-field>
                 </v-card-text>
 
@@ -104,12 +125,22 @@
                     v-mask="mask"
                     v-model="sellPrice"
                   ></v-text-field>-->
-                  <v-text-field label="양도가액 입력" prefix="₩" outlined v-model="sellPrice" clearable></v-text-field>
+                  <v-text-field
+                    label="양도가액 입력"
+                    prefix="₩"
+                    outlined
+                    v-model="sellPrice"
+                    clearable
+                    type="number"
+                    class="inputPrice"
+                    pattern="\d*"
+                  ></v-text-field>
+                  <!--currency-text-field label="양도가액 입력" v-model="sellPrice"/-->
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-btn color="primary" @click="(e6 = 3), step2();">다음</v-btn>
-                  <v-btn @click="e6 = 1">취소</v-btn>
+                  <v-btn min-width="48%" color="primary" @click="(e6 = 3), step2();">다음</v-btn>
+                  <v-btn min-width="48%" @click="e6 = 1">취소</v-btn>
                 </v-card-actions>
               </v-card>
             </v-stepper-content>
@@ -130,18 +161,30 @@
                     outlined
                     v-mask="'####-##-##'"
                     v-model="buyDate"
+                    hide-details
                   ></v-text-field>
                 </v-card-text>
 
                 <v-card-title>취득가액</v-card-title>
                 <v-card-subtitle>살 때 : 계약금 (+ 중도금) + 잔금</v-card-subtitle>
                 <v-card-text>
-                  <v-text-field label="취득가액 입력" prefix="₩" outlined v-model="buyPrice" clearable></v-text-field>
+                  <v-text-field
+                    label="취득가액 입력"
+                    prefix="₩"
+                    outlined
+                    v-model="buyPrice"
+                    hide-details
+                    clearable
+                    type="number"
+                    pattern="\d*"
+                    class="inputPrice"
+                  ></v-text-field>
+                  <!--currency-text-field label="취득가액 입력" v-model="buyPrice"/-->
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-btn color="primary" @click="(e6 = 4), step3();">다음</v-btn>
-                  <v-btn @click="e6 = 2">취소</v-btn>
+                  <v-btn min-width="48%" color="primary" @click="(e6 = 4), step3();">다음</v-btn>
+                  <v-btn min-width="48%" @click="e6 = 2">취소</v-btn>
                 </v-card-actions>
               </v-card>
             </v-stepper-content>
@@ -157,11 +200,13 @@
                 <v-card-text>
                   <v-text-field
                     label="취득세"
-                    hint="취득가액 입력시 자동 계산"
+                    hint="취득가액 입력시 85㎡ 기준으로 자동 계산"
                     persistent-hint
                     outlined
                     prefix="₩"
                     clearable
+                    pattern="\d*"
+                    v-model="buyTax"
                   ></v-text-field>
                 </v-card-text>
                 <v-card-text>
@@ -172,6 +217,7 @@
                     outlined
                     prefix="₩"
                     clearable
+                    pattern="\d*"
                     v-model="legalCost"
                   ></v-text-field>
                 </v-card-text>
@@ -183,6 +229,8 @@
                     outlined
                     prefix="₩"
                     clearable
+                    pattern="\d*"
+                    v-model="brokerFee1"
                   ></v-text-field>
                 </v-card-text>
                 <v-card-text>
@@ -193,6 +241,8 @@
                     outlined
                     prefix="₩"
                     clearable
+                    pattern="\d*"
+                    v-model="brokerFee2"
                   ></v-text-field>
                 </v-card-text>
                 <v-card-text>
@@ -203,6 +253,7 @@
                     outlined
                     prefix="₩"
                     clearable
+                    pattern="\d*"
                     v-model="bondLoss"
                   ></v-text-field>※ [국민주택(1종)채권매출 매입 확인서] 영수증에서 본인부담액 항목
                 </v-card-text>
@@ -214,6 +265,7 @@
                     outlined
                     prefix="₩"
                     clearable
+                    pattern="\d*"
                     v-model="repairCost"
                   ></v-text-field>※ 부동산의 수명을 연장시키거나 가치를 상승시키기 위해 지출한 수선비만 가능
                   <br>예1) 발코니 샷시 설치 및 교체비, 방/베란다 확장 공사비, 바닥 시공비, 보일러 교체비 등은 가능
@@ -226,15 +278,15 @@
                   <br>예) 부부공동명의 : 250만×2=500만원
                 </v-card-subtitle>
                 <v-card-text>
-                  <v-radio-group>
-                    <v-radio label="공동명의 입니다"></v-radio>
-                    <v-radio label="1인 단독명의 입니다."></v-radio>
+                  <v-radio-group dense v-model="joint">
+                    <v-radio label="1인 단독명의" value="1"></v-radio>
+                    <v-radio label="공동명의" value="2"></v-radio>
                   </v-radio-group>
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-btn color="primary" to="/result" @click.native="step4();">완료</v-btn>
-                  <v-btn @click="e6 = 3">취소</v-btn>
+                  <v-btn min-width="48%" color="primary" to="/result" @click.native="step4();">완료</v-btn>
+                  <v-btn min-width="48%" @click="e6 = 3">취소</v-btn>
                 </v-card-actions>
               </v-card>
             </v-stepper-content>
@@ -247,10 +299,12 @@
 
 <script>
 import createNumberMask from "text-mask-addons/dist/createNumberMask";
+import { connect } from "net";
+//import CurrencyTextField from "./CurrencyTextField.vue";
 
 const currencyMask = createNumberMask({
   prefix: ""
-  //allowDecimal: true,
+  //allowDecimal: false,
   //includeThousandsSeparator: true,
   //allowNegative: false
 });
@@ -258,7 +312,16 @@ const currencyMask = createNumberMask({
 export default {
   data: () => ({
     e6: 1,
+
     mask: currencyMask,
+
+    alert1: false,
+    alert2: false,
+
+    sellType: "",
+    sellCnt: "",
+    houseCnt: "",
+    livePeriod: "",
 
     sellPrice: "",
     sellDate: "",
@@ -266,29 +329,35 @@ export default {
     buyPrice: "",
     buyDate: "",
 
+    buyTax: "",
     legalCost: "",
+    brokerFee1: "",
+    brokerFee2: "",
+    bondLoss: "",
     repairCost: "",
-    bondLoss: ""
-
-    /*houseType: "",
-    sellOneHouse: "",
-    aHouseForFamily: "",
-    live2yrs: "",
-    controlArea: "",
-    
-    saleTax: "",
-    
-    brokerFeeBuy: "",
-    brokerFeeSell: "",
-    
-    
-    jointName: ""*/
+    joint: ""
   }),
 
+  /*components: {
+    CurrencyTextField
+  },*/
+
   mounted() {
+    if (localStorage.sellType) {
+      this.sellType = localStorage.sellType;
+    }
+    if (localStorage.sellCnt) {
+      this.sellCnt = localStorage.sellCnt;
+    }
+    if (localStorage.houseCnt) {
+      this.houseCnt = localStorage.houseCnt;
+    }
+    if (localStorage.livePeriod) {
+      this.livePeriod = localStorage.livePeriod;
+    }
+
     if (localStorage.sellPrice) {
       this.sellPrice = localStorage.sellPrice;
-      //console.log(this.sellPrice);
     }
     if (localStorage.sellDate) {
       this.sellDate = localStorage.sellDate;
@@ -301,37 +370,105 @@ export default {
       this.buyDate = localStorage.buyDate;
     }
 
+    if (localStorage.buyTax) {
+      this.buyTax = localStorage.buyTax;
+    }
+
     if (localStorage.legalCost) {
       this.legalCost = localStorage.legalCost;
-      //console.log(localStorage.sellPrice);
     }
-    if (localStorage.repairCost) {
-      this.repairCost = localStorage.repairCost;
-      //console.log(localStorage.repairCost);
+    if (localStorage.brokerFee1) {
+      this.brokerFee1 = localStorage.brokerFee1;
+    }
+    if (localStorage.brokerFee2) {
+      this.brokerFee2 = localStorage.brokerFee2;
     }
     if (localStorage.bondLoss) {
       this.bondLoss = localStorage.bondLoss;
     }
-  },
-
-  methods: {
-    step2() {
-      localStorage.sellPrice = this.sellPrice; //.replace(/,/g, ""); //remove comma
-      localStorage.sellDate = this.sellDate;
-      //console.log(this.sellPrice);
-    },
-    step3() {
-      localStorage.buyPrice = this.buyPrice;
-      localStorage.buyDate = this.buyDate;
-      //console.log(localStorage.buyPrice);
-    },
-    step4() {
-      localStorage.legalCost = this.legalCost;
-      localStorage.repairCost = this.repairCost;
-      localStorage.bondLoss = this.bondLoss;
+    if (localStorage.repairCost) {
+      this.repairCost = localStorage.repairCost;
+    }
+    if (localStorage.joint) {
+      this.joint = localStorage.joint;
     }
   },
 
-  watch: {}
+  methods: {
+    //중개수수료 자동 계산
+    brokerFee(amount) {
+      if (amount < 50000000) {
+        if (amount * 0.006 > 250000) {
+          return 250000;
+        } else {
+          return amount * 0.006;
+        }
+      } else if (amount < 200000000) {
+        if (amount * 0.005 > 800000) {
+          return 800000;
+        } else {
+          return amount * 0.005;
+        }
+      } else if (amount < 600000000) {
+        return amount * 0.004;
+      } else if (amount < 900000000) {
+        return amount * 0.005;
+      } else {
+        return amount * 0.009;
+      }
+    },
+
+    tax(amount) {
+      //취득세 자동 계산 (85m 이상은 1.3% 2.4% 3.5%)
+      if (amount < 600000000) {
+        return amount * 0.01;
+      } else if (amount > 900000000) {
+        return amount * 0.033;
+      } else {
+        return amount * 0.022;
+      }
+    },
+
+    step1() {
+      localStorage.sellType = this.sellType;
+      localStorage.sellCnt = this.sellCnt;
+      localStorage.houseCnt = this.houseCnt;
+      localStorage.livePeriod = this.livePeriod;
+    },
+    step2() {
+      //양도 중개 수수료 자동 계산
+      //if (localStorage.sellPrice !== this.sellPrice) { //유저가 새로 입력한 경우
+
+      this.brokerFee2 = this.brokerFee(this.sellPrice);
+      //}
+      localStorage.sellPrice = this.sellPrice; //.replace(/,/g, ""); //remove comma
+      localStorage.sellDate = this.sellDate;
+    },
+    step3() {
+      // 취득세, 취득 중개 수수료 자동 계산
+      //if (localStorage.buyPrice !== this.buyPrice) { //유저가 새로 입력한 경우
+
+      this.buyTax = this.tax(this.buyPrice);
+      this.brokerFee1 = this.brokerFee(this.buyPrice);
+      //}
+      localStorage.buyPrice = this.buyPrice;
+      localStorage.buyDate = this.buyDate;
+    },
+    step4() {
+      localStorage.buyTax = this.buyTax;
+      localStorage.legalCost = this.legalCost;
+      localStorage.brokerFee1 = this.brokerFee1;
+      localStorage.brokerFee2 = this.brokerFee2;
+      localStorage.bondLoss = this.bondLoss;
+      localStorage.repairCost = this.repairCost;
+      localStorage.joint = this.joint;
+    }
+  },
+
+  computed: {
+    //sellCnt(val) {
+    //console.log(val);
+    //}
+  }
 };
 </script>
