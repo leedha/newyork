@@ -171,48 +171,48 @@
                   <tbody>
                     <tr>
                       <th>해운대구</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th>2019.11.8</th>
                     </tr>
                     <tr>
                       <th>연제구</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th>2018.12.31</th>
                     </tr>
                     <tr>
                       <th>동래구</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th>2019.11.8</th>
                     </tr>
                     <tr>
                       <th>남구</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th>2018.12.31</th>
                     </tr>
                     <tr>
                       <th>부산 진구</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th>2018.12.31</th>
                     </tr>
                     <tr>
                       <th>수영구</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th>2019.11.8</th>
                     </tr>
                     <tr>
                       <th>기장군 기장읍 장안읍 정관읍 철마면</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th>2018.8.28</th>
                     </tr>
                     <tr>
                       <th>기장군 일광면</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th>2018.12.31</th>
                     </tr>
                   </tbody>
                   <thead>
                     <tr>
-                      <th colspan="3" class="text-center bg-gr-l4">경기</th>
+                      <th colspan="3" class="text-center bg-gr-l4">경기 (제외지역은 자세히보기 참조)</th>
                     </tr>
                     <tr class="bg-gr-l5">
                       <th>지역</th>
@@ -223,52 +223,62 @@
                   <tbody>
                     <tr>
                       <th>과천시</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>광명시</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>성남시</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>고양시</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th>2019.11.8</th>
+                    </tr>
+                    <tr>
+                      <th>고양시</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>남양주시</th>
-                      <th>2017.9.6</th>
-                      <th>2019.11.8</th>
+                      <th>2017.09.06</th>
+                      <th>2019.11.08</th>
+                    </tr>
+                    <tr>
+                      <th>남양주시 (제외지역 있음)</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>하남시</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>화성시</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>구리시</th>
-                      <th>2018.8.28</th>
+                      <th>2018.08.28</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>안양시 동래구</th>
-                      <th>2018.8.28</th>
+                      <th>2018.08.28</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>광교</th>
-                      <th>2018.8.28</th>
+                      <th>2018.08.28</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
@@ -287,28 +297,172 @@
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
+                      <th>용인시 처인구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
                       <th>수원시 영통구</th>
-                      <th>2020.2.21</th>
+                      <th>2020.02.21</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>수원시 권선구</th>
-                      <th>2020.2.21</th>
+                      <th>2020.02.21</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>수원시 장안구</th>
-                      <th>2020.2.21</th>
+                      <th>2020.02.21</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>안양시 만안구</th>
-                      <th>2020.2.21</th>
+                      <th>2020.02.21</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>의왕시</th>
-                      <th>2020.2.21</th>
+                      <th>2020.02.21</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>군포시</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>안성시 (제외지역 있음)</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>부천시</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>안산시</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>시흥시</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>오산시</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>평택시</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>광주시 (제외지역 있음)</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>양주시</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>의정부시</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                  </tbody>
+                  <thead>
+                    <tr>
+                      <th colspan="3" class="text-center bg-gr-l4">인천</th>
+                    </tr>
+                    <tr class="bg-gr-l5">
+                      <th>지역</th>
+                      <th>지정공고일</th>
+                      <th>해제공고일</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>연수구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>남동구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>서구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>중구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>동구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>미추홀구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>부평구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>계양구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                  </tbody>
+                  <thead>
+                    <tr>
+                      <th colspan="3" class="text-center bg-gr-l4">대전</th>
+                    </tr>
+                    <tr class="bg-gr-l5">
+                      <th>지역</th>
+                      <th>지정공고일</th>
+                      <th>해제공고일</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>동구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>중구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>서구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>유성구</th>
+                      <th>2020.06.19</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                    <tr>
+                      <th>대덕구</th>
+                      <th>2020.06.19</th>
                       <th class="text-center">-</th>
                     </tr>
                   </tbody>
@@ -325,27 +479,44 @@
                   <tbody>
                     <tr>
                       <th>연기군 금남면</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>연기군 남면</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>연기군 동면</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>공주시 장기면</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
                       <th class="text-center">-</th>
                     </tr>
                     <tr>
                       <th>공주시 반포면</th>
-                      <th>2017.9.6</th>
+                      <th>2017.09.06</th>
+                      <th class="text-center">-</th>
+                    </tr>
+                  </tbody>
+                  <thead>
+                    <tr>
+                      <th colspan="3" class="text-center bg-gr-l4">충북 (제외지역은 자세히보기 참조)</th>
+                    </tr>
+                    <tr class="bg-gr-l5">
+                      <th>지역</th>
+                      <th>지정공고일</th>
+                      <th>해제공고일</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>청주시 (제외지역 있음)</th>
+                      <th>2020.06.19</th>
                       <th class="text-center">-</th>
                     </tr>
                   </tbody>
@@ -368,7 +539,7 @@
                   <v-timeline-item color="red darken-1" small>
                     <v-card class="elevation-2">
                       <v-card-text>[조정대상지역] 지정
-                        <br>공고일 : 2017.9.6
+                        <br>공고일 : 2017.09.06
                       </v-card-text>
                       <v-divider></v-divider>
                       <v-card-text>
@@ -389,7 +560,7 @@
                   <v-timeline-item color="green darken-1" small>
                     <v-card class="elevation-2">
                       <v-card-text>조정대상지역 해제
-                        <br>공고일 : 2018.8.28
+                        <br>공고일 : 2018.08.28
                       </v-card-text>
                       <v-divider></v-divider>
                       <v-card-text>
@@ -402,7 +573,7 @@
                   <v-timeline-item color="red darken-1" small>
                     <v-card class="elevation-2">
                       <v-card-text>조정대상지역 지정
-                        <br>공고일 : 2018.8.28
+                        <br>공고일 : 2018.08.28
                       </v-card-text>
                       <v-divider></v-divider>
                       <v-card-text>
@@ -441,7 +612,7 @@
                   <v-timeline-item color="green darken-1" small>
                     <v-card class="elevation-2">
                       <v-card-text>조정대상지역 해제
-                        <br>공고일 : 2019.11.8
+                        <br>공고일 : 2019.11.08
                       </v-card-text>
                       <v-divider></v-divider>
                       <v-card-text>
@@ -459,11 +630,39 @@
                   <v-timeline-item color="red darken-1" small>
                     <v-card class="elevation-2">
                       <v-card-text>조정대상지역 지정
-                        <br>공고일 : 2020. 2. 21
+                        <br>공고일 : 2020.02.21
                       </v-card-text>
                       <v-divider></v-divider>
                       <v-card-text>
                         <v-icon small color="blue darken-2">mdi-check</v-icon>경기도 - 수원시 영통구ㆍ권선구ㆍ장안구, 안양시 만안구, 의왕시
+                      </v-card-text>
+                    </v-card>
+                  </v-timeline-item>
+                  <v-timeline-item color="red darken-1" small>
+                    <v-card class="elevation-2">
+                      <v-card-text>조정대상지역 지정
+                        <br>공고일 : 2020.06.19
+                      </v-card-text>
+                      <v-divider></v-divider>
+                      <v-card-text>
+                        <v-icon small color="blue darken-2">mdi-check</v-icon>경기도 - 고양시, 남양주시
+                        <span class="caption">(화도급, 수동면, 조안면 제외)</span>, 군포시, 안성시
+                        <span
+                          class="caption"
+                        >(일죽면, 죽산면 죽산리ㆍ용설리ㆍ장계리ㆍ매산리ㆍ장릉리ㆍ장원리ㆍ두현리, 삼죽면 용월리ㆍ덕산리ㆍ율곡리ㆍ내장리ㆍ배태리 제외)</span>, 부천시, 안산시, 시흥시, 용인시 처인구
+                        <span
+                          class="caption"
+                        >(포곡읍, 모현면, 백암면, 양지면, 원삼면 가재월리ㆍ사암리ㆍ미평리ㆍ좌항리ㆍ맹리ㆍ두창리 제외)</span>, 오산시, 평택시, 광주시
+                        <span class="caption">(초월읍, 곤지암읍, 도척면, 퇴촌면, 남종면, 남한산성면 제외)</span>, 양주시, 의정부시
+                        <br>
+                        <v-icon small color="blue darken-2">mdi-check</v-icon>인천 - 중구, 동구, 미추홀구, 연수구, 남동구, 부평구, 계양구, 서구
+                        <br>
+                        <v-icon small color="blue darken-2">mdi-check</v-icon>대전 - 동구, 중구, 서구, 유성구, 대덕구
+                        <br>
+                        <v-icon small color="blue darken-2">mdi-check</v-icon>충북 - 청주
+                        <span
+                          class="caption"
+                        >(낭성면, 미원면, 가덕면, 남일면, 문의면, 남이면, 현도면, 강내면, 옥산면, 내수읍, 북이면 제외)</span>
                       </v-card-text>
                     </v-card>
                   </v-timeline-item>

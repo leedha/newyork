@@ -200,21 +200,21 @@
                 <v-card-text>
                   <v-text-field
                     label="취득세"
-                    hint="취득가액 입력시 85㎡ 기준으로 자동 계산"
+                    hint="전용 85㎡ 이하인 경우 자동 계산 가능"
                     persistent-hint
                     outlined
                     prefix="₩"
                     clearable
                     pattern="\d*"
                     v-model="buyTax"
+                    append-icon="mdi-calculator"
+                    @click:append="autoCal('tax')"
                   ></v-text-field>
-                  <v-btn @click="autoCal('tax')">자동계산(전용 85㎡ 이하 주택)</v-btn>
-                  <v-btn>자동계산(전용 85㎡ 초과 주택)</v-btn>
                 </v-card-text>
                 <v-card-text>
                   <v-text-field
                     label="법무사비"
-                    hint="없거나 모를 경우 0원으로 계산됨"
+                    hint="없거나 모를 경우 미입력 (0원으로 계산됨)"
                     persistent-hint
                     outlined
                     prefix="₩"
@@ -226,28 +226,30 @@
                 <v-card-text>
                   <v-text-field
                     label="취득시 중개수수료"
-                    hint="취득가액 입력시 자동 계산"
+                    hint="취득가액 기준 자동 계산 (참고용)"
                     persistent-hint
                     outlined
                     prefix="₩"
                     clearable
                     pattern="\d*"
                     v-model="brokerFeeBuy"
+                    append-icon="mdi-calculator"
+                    @click:append="autoCal('brokerFeeBuy')"
                   ></v-text-field>
-                  <v-btn @click="autoCal('brokerFeeBuy')">자동계산</v-btn>
                 </v-card-text>
                 <v-card-text>
                   <v-text-field
                     label="양도시 중개수수료"
-                    hint="양도가액 입력시 자동 계산"
+                    hint="양도가액 기준 자동 계산 (참고용)"
                     persistent-hint
                     outlined
                     prefix="₩"
                     clearable
                     pattern="\d*"
                     v-model="brokerFeeSell"
+                    append-icon="mdi-calculator"
+                    @click:append="autoCal('brokerFeeSell')"
                   ></v-text-field>
-                  <v-btn @click="autoCal('brokerFeeSell')">자동계산</v-btn>
                 </v-card-text>
                 <v-card-text>
                   <v-text-field
@@ -428,7 +430,7 @@ export default {
 
     autoCal(type) {
       if (type === "tax") {
-        this.buyTax = taxHelper.tax(this.buyPrice, this.buyDate);
+        this.buyTax = Math.floor(taxHelper.tax(this.buyPrice, this.buyDate));
       } else if (type === "brokerFeeBuy") {
         this.brokerFeeBuy = brokerFeeHelper.brokerFee(this.buyPrice);
       } else if (type === "brokerFeeSell") {
