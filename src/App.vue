@@ -44,6 +44,12 @@ export default {
 .fc-gr {
   color: #43A047;
 }
+.fc-bl {
+  color: #1E88E5;
+}
+.fc-bl-dk {
+  color: #0D47A1;
+}
 
 .box {
   width: 150px;
