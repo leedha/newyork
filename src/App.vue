@@ -71,4 +71,8 @@ export default {
 .inputPrice input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
+.v-expansion-panels.font .v-expansion-panel-header {
+  font-size: small;
+}
 </style>
