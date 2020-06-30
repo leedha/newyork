@@ -25,14 +25,25 @@ export default {
 .bg-gr {
   background-color: #4CAF50;
 }
-.bg-gr-l3 {
-  background-color: #A5D6A7;
-}
-.bg-gr-l4 {
-  background-color: #C8E6C9;
-}
-.bg-gr-l5 {
+.bg-gr-lt {
   background-color: #E8F5E9;
+}
+
+.bg-tl {
+  background-color: #4DB6AC;
+}
+.bg-tl-lt {
+  background-color: #B2DFDB;
+}
+
+.bg-lm {
+  background-color: #D4E157;
+}
+.bg-lm-lt {
+  background-color: #F0F4C3;
+}
+.bg-lm-dk {
+  background-color: #E6EE9C;
 }
 
 .fc-wt {
