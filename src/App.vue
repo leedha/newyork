@@ -61,6 +61,9 @@ export default {
 .fc-bl-dk {
   color: #0D47A1;
 }
+.fc-tl-dk {
+  color: #004D40;
+}
 
 .box {
   width: 150px;
