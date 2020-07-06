@@ -30,10 +30,10 @@ export default {
 }
 
 .bg-tl {
-  background-color: #4DB6AC;
+  background-color: #B0BEC5;
 }
 .bg-tl-lt {
-  background-color: #B2DFDB;
+  background-color: #ECEFF1;
 }
 
 .bg-lm {
