@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-content>
+    <v-main>
       <!--v-content-->
       <v-container fluid grid-list-md>
         <!--v-layout row wrap-->
@@ -19,25 +19,17 @@
           </v-card-text>
 
           <v-card-actions class="mt-12">
-            <v-btn block color="primary" dark to="/ahead">시작하기</v-btn>
+            <v-btn dark block color="primary" to="/ahead">시작하기</v-btn>
           </v-card-actions>
         </v-card>
         <!--/v-flex-->
         <!--/v-layout-->
       </v-container>
       <!--/v-content-->
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
-<script>
-export default {
-  methods: {
-    goToStep: function(event) {
-      this.$router.push("/Steps");
-    }
-  }
-};
-</script>
+
 
 
