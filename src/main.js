@@ -25,5 +25,6 @@ new Vue({
   //store,
   el: "#app",
   components: { App },
-  template: "<App/>"
+  template: "<App/>",
+  render: h => h(App)
 });
