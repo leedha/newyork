@@ -29,6 +29,19 @@ export default {
   background-color: #E8F5E9;
 }
 
+.bg-bl-lt {
+  background-color: #E3F2FD;
+}
+
+.bg-tbl {
+  background-color: #B2EBF2;
+}
+.bg-tbl-lt {
+  background-color: #E0F7FA;
+}
+
+
+
 .bg-tl {
   background-color: #B0BEC5;
 }

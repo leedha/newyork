@@ -1,8 +1,10 @@
 export default {
   getTaxRateForHouse(taxBase, controlArea, houseCnt) {
     var taxRate = 0;
-
-    if (taxBase <= 12000000) {
+    if (taxBase <= 0) {
+      taxRate = 0;
+    }
+    else if (taxBase <= 12000000) {
       taxRate = 0.06;
     } else if (taxBase <= 46000000) {
       taxRate = 0.15;
@@ -40,7 +42,9 @@ export default {
       taxRate = 0.4;
     } else {
       // 2년 이상 보유
-      if (taxBase <= 12000000) {
+      if (taxBase <= 0) {
+        taxRate = 0;
+      } else if (taxBase <= 12000000) {
         taxRate = 0.06;
       } else if (taxBase <= 46000000) {
         taxRate = 0.15;
@@ -71,7 +75,9 @@ export default {
       taxRate = 0.4;
     } else {
       // 2년 이상 보유
-      if (taxBase <= 12000000) {
+      if (taxBase <= 0) {
+        taxRate = 0;
+      } else if (taxBase <= 12000000) {
         taxRate = 0.06;
       } else if (taxBase <= 46000000) {
         taxRate = 0.15;

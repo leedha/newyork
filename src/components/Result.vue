@@ -1,14 +1,10 @@
 <template>
   <v-app>
-    <v-navigation-drawer app>
-      <!-- -->
-    </v-navigation-drawer>
-
     <v-app-bar app dark color="blue darken-4">
       <v-toolbar-title>양도소득세 계산결과</v-toolbar-title>
     </v-app-bar>
 
-    <v-content>
+    <v-main>
       <v-container fluid grid-list-md>
         <v-row align="center" justify="center">
           <v-col>
@@ -71,15 +67,15 @@
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
                       취득세 {{buyTax | comma}}원
-                      <br>
+                      <br />
                       법무사비 {{legalCost | comma}}원
-                      <br>
+                      <br />
                       중개수수료 원 (취득 {{brokerFeeBuy | comma}}원 + 양도 {{brokerFeeSell | comma}}원)
-                      <br>
+                      <br />
                       국민주택채권 매각차손 {{bondLoss | comma}}원
-                      <br>
+                      <br />
                       수리비 {{repairCost | comma}}원
-                      <br>합계 원
+                      <br />합계 원
                     </v-expansion-panel-content>
                   </v-expansion-panel>
 
@@ -175,8 +171,9 @@
                       <v-simple-table dense class="elevation-1 mb-5">
                         <thead>
                           <tr class="bg-gr-l4">
-                            <th colspan="2">1세대1주택 9억 초과 주택
-                              <br>(2년 이상 거주시 9억초과분에 한해서)
+                            <th colspan="2">
+                              1세대1주택 9억 초과 주택
+                              <br />(2년 이상 거주시 9억초과분에 한해서)
                             </th>
                           </tr>
                           <tr class="bg-gr-l5">
@@ -221,9 +218,9 @@
                       </v-simple-table>
 
                       <div>
-                        <v-icon small color="green darken-1">mdi-check</v-icon>조정대상지역 외 다주택자는 공제 가능
-                        <br>
-                        <v-icon small color="green darken-1">mdi-check</v-icon>조정대상지역 내 다주택자는 공제 불가
+                        <v-icon small color="blue darken-1">mdi-check</v-icon>조정대상지역 외 다주택자는 공제 가능
+                        <br />
+                        <v-icon small color="blue darken-1">mdi-check</v-icon>조정대상지역 내 다주택자는 공제 불가
                       </div>
                     </v-expansion-panel-content>
                   </v-expansion-panel>
@@ -315,13 +312,15 @@
                             <th>42%</th>
                           </tr>
                           <tr>
-                            <th colspan="2">조정대상지역 1가구 2주택 (입주권 포함)
-                              <br>: 기본세율 + 10%
+                            <th colspan="2">
+                              조정대상지역 1가구 2주택 (입주권 포함)
+                              <br />: 기본세율 + 10%
                             </th>
                           </tr>
                           <tr>
-                            <th colspan="2">조정대상지역 1가구 3주택 (입주권 포함)
-                              <br>: 기본세율 + 20%
+                            <th colspan="2">
+                              조정대상지역 1가구 3주택 (입주권 포함)
+                              <br />: 기본세율 + 20%
                             </th>
                           </tr>
                         </tbody>
@@ -423,8 +422,9 @@
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content>납부해야할 금액 입니다.
-                      <br>지방소득세 = 산출세액 × 10%
+                    <v-expansion-panel-content>
+                      납부해야할 금액 입니다.
+                      <br />지방소득세 = 산출세액 × 10%
                     </v-expansion-panel-content>
                   </v-expansion-panel>
                 </v-expansion-panels>
@@ -432,8 +432,9 @@
 
               <v-divider class="mx-4"></v-divider>
 
-              <v-card-text class="fc-gr">** 양도소득세와 지방소득세는
-                <br>각각의 고지서로 2가지 모두 납부해야 합니다.
+              <v-card-text class="fc-gr">
+                ** 양도소득세와 지방소득세는
+                <br />각각의 고지서로 2가지 모두 납부해야 합니다.
               </v-card-text>
 
               <v-divider class="mx-4"></v-divider>
@@ -446,7 +447,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
