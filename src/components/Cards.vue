@@ -11,15 +11,25 @@
             <v-card dark color="indigo" class="ma-2 pa-2">
               <v-card-title>Q1. 주택 매각 갯수</v-card-title>
               <v-card-subtitle>
-                동일 과세 년도(1월1일~12월31일)에 매각한 물건이 2개 이상인 경우 양도 차익을 합산해서 과세 합니다. (매년 5월 확정신고 때 합산하여 신고 해야 함)
+                <v-icon small>mdi-check</v-icon>동일 과세 년도(1월1일~12월31일)에 매각한 물건이 2개 이상인 경우 양도 차익을 합산해서 과세 합니다. (매년 5월 확정신고 때 합산하여 신고 해야 함)
                 <br />※ 단, 마지막에 매각한 주택이 1세대1주택 요건 충족시 마지막에 매각한 주택은 비과세 되므로 합산과세 대상은 아닙니다.
               </v-card-subtitle>
               <v-card-actions>
-                <v-chip-group column v-model="controlAreaVal">
-                  <v-chip label color="pink darken-4" value="1">네, 합산과세 대상입니다</v-chip>
-                  <v-chip label color="pink darken-4" value="0">아니요</v-chip>
+                <v-chip-group column v-model="sellCnt">
+                  <v-chip label color="pink darken-4" @change="alert1 = true">네, 합산과세 대상입니다</v-chip>
+                  <v-chip label color="pink darken-4" @change="alert1 = false">아니요</v-chip>
                 </v-chip-group>
               </v-card-actions>
+
+              <v-alert
+                :value="alert1"
+                type="info"
+                color="red darken-4"
+                transition="scale-transition"
+              >
+                합산과세 대상이므로 계산이 불가 합니다.
+                <br />단, 마지막에 매각한 물건이 비과세 요건을 충족한다면 비과세이므로 계산할 필요 없습니다.
+              </v-alert>
             </v-card>
           </v-col>
         </v-row>
@@ -29,7 +39,7 @@
             <v-card dark color="indigo" class="ma-2 pa-2">
               <v-card-title>Q2. 양도한 물건의 종류</v-card-title>
               <v-card-subtitle>
-                1세대1주택 요건 충족했지만
+                <v-icon small>mdi-check</v-icon>1세대1주택 요건 충족했지만
                 양도가액이 9억 초과인 경우
                 9억초과분에 한해 과세됩니다.
               </v-card-subtitle>
@@ -48,14 +58,26 @@
             <v-card dark color="indigo" class="ma-2 pa-2">
               <v-card-title>Q3. 보유 주택 갯수</v-card-title>
               <v-card-subtitle>
-                일시적 2주택 특례 대상이 아닌 경우, 입주권을 포함한 보유 주택 갯수
-                <br />(단, 분양관은 관계없음 2021년부터 조정대상지역인 경우 분양권도 보유 주택 수에 산입시킴)
+                <v-icon small>mdi-check</v-icon>일시적 2주택 특례 대상이 아닌 경우, 입주권을 포함한 보유 주택 갯수 입니다.
+                <br />(단, 분양관은 관계없음. 2021년부터 조정대상지역인 경우 분양권도 보유 주택 수에 산입 예정)
+                <br />
+                <v-icon small>mdi-check</v-icon>1세대1주택 9억초과인 경우 1주택을 선택해주세요.
               </v-card-subtitle>
               <v-card-actions>
                 <v-chip-group column v-model="houseCnt">
                   <v-chip label color="pink darken-4" value="1">1주택</v-chip>
-                  <v-chip label color="pink darken-4" value="2">2주택</v-chip>
-                  <v-chip label color="pink darken-4" value="3">3주택 이상</v-chip>
+                  <v-chip
+                    label
+                    color="pink darken-4"
+                    value="2"
+                    :disabled="sellType=='luxuryHouse'"
+                  >2주택</v-chip>
+                  <v-chip
+                    label
+                    color="pink darken-4"
+                    value="3"
+                    :disabled="sellType=='luxuryHouse'"
+                  >3주택 이상</v-chip>
                 </v-chip-group>
               </v-card-actions>
             </v-card>
@@ -66,7 +88,9 @@
           <v-col>
             <v-card dark color="indigo" class="ma-2 pa-2">
               <v-card-title>Q4. 조정대상지역 여부</v-card-title>
-              <v-card-subtitle>조정대상지역의 다주택자는 2020년 7월부터 중과세 및 장기보유 특별 공제 적용 배제</v-card-subtitle>
+              <v-card-subtitle>
+                <v-icon small>mdi-check</v-icon>조정대상지역의 다주택자는 2020년 7월부터 중과세 및 장기보유 특별 공제 적용 배제
+              </v-card-subtitle>
               <v-card-actions>
                 <v-chip-group column v-model="controlAreaVal">
                   <v-chip label color="pink darken-4" value="1">네, 조정대상지역 입니다</v-chip>
@@ -82,9 +106,9 @@
             <v-card dark color="indigo" class="ma-2 pa-2">
               <v-card-title>Q5. 실제 거주 기간</v-card-title>
               <v-card-subtitle>
-                주민등록상 거주지 등록기간이 2년 이상인 경우
+                <v-icon small>mdi-check</v-icon>주민등록상 거주 기간이 2년 이상인 경우
                 <br />- 1세대1주택 9억 초과분에 대해 장기보유특별공제 적용 가능
-                <br />- 1세대1주택 비과세 특례요건에 조정대상지역인 경우 2년 이상 거주 요건 필요
+                <br />- 조정대상지역인 경우 2년 이상 거주시 1세대1주택 비과세 가능
               </v-card-subtitle>
               <v-card-actions>
                 <v-chip-group column v-model="livePeriod">
@@ -265,7 +289,7 @@
                 <br />예) 부부공동명의인 경우 1년에 500만원 한도
               </v-card-subtitle>
               <v-card-text>
-                <v-chip-group dense v-model="joint">
+                <v-chip-group column v-model="joint">
                   <v-chip label color="pink darken-4" value="1">1인 단독명의</v-chip>
                   <v-chip label color="pink darken-4" value="2">2인 공동명의</v-chip>
                 </v-chip-group>
@@ -276,10 +300,98 @@
 
         <v-row>
           <v-col>
-            <v-btn block color="primary" dark to="/result">계산결과 확인하기</v-btn>
+            <v-btn block color="primary" to="/result" @click.native="save();">계산결과 확인하기</v-btn>
           </v-col>
         </v-row>
       </v-container>
     </v-main>
   </v-app>
 </template>
+
+<script>
+import createNumberMask from "text-mask-addons/dist/createNumberMask";
+
+import taxHelper from "../utils/sellTax";
+import brokerFee from "../utils/brokerFee";
+
+const currencyMask = createNumberMask({
+  prefix: ""
+  //allowDecimal: false,
+  //includeThousandsSeparator: true,
+  //allowNegative: false
+});
+
+export default {
+  data: () => ({
+    mask: currencyMask,
+
+    alert1: false,
+    alert2: false,
+
+    sellType: "",
+    sellCnt: "",
+    houseCnt: "",
+    livePeriod: "",
+
+    sellPrice: 0,
+    sellDate: "",
+
+    buyPrice: 0,
+    buyDate: "",
+
+    buyTax: 0,
+    legalCost: 0,
+    brokerFeeBuy: 0,
+    brokerFeeSell: 0,
+    bondLoss: 0,
+    repairCost: 0,
+    joint: ""
+  }),
+
+  methods: {
+    save() {
+      localStorage.sellType = this.sellType;
+
+      localStorage.sellCnt = this.sellCnt;
+
+      localStorage.houseCnt = this.houseCnt;
+
+      localStorage.livePeriod = this.livePeriod;
+
+      localStorage.sellPrice = this.sellPrice; //.replace(/,/g, ""); //remove comma
+
+      localStorage.sellDate = this.sellDate;
+
+      localStorage.buyPrice = this.buyPrice; //.replace(/,/g, ""); //remove comma
+
+      localStorage.buyDate = this.buyDate;
+
+      localStorage.buyTax.setItem(this.buyTax);
+
+      localStorage.legalCost.setItem(this.legalCost);
+
+      localStorage.brokerFeeBuy.setItem(this.brokerFeeBuy);
+
+      localStorage.brokerFeeSell.setItem(this.brokerFeeSell);
+
+      localStorage.bondLoss.setItem(this.bondLoss);
+
+      localStorage.repairCost.setItem(this.repairCost);
+
+      localStorage.joint = this.joint;
+    },
+
+    autoCal(type) {
+      if (type === "tax") {
+        this.buyTax = Math.floor(taxHelper.tax(this.buyPrice, this.buyDate));
+      } else if (type === "brokerFeeBuy") {
+        this.brokerFeeBuy = brokerFee.brokerFee(this.buyPrice);
+      } else if (type === "brokerFeeSell") {
+        this.brokerFeeSell = brokerFee.brokerFee(this.sellPrice);
+      }
+    }
+  },
+
+  computed: {}
+};
+</script>

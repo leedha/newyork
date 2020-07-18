@@ -694,7 +694,7 @@
               </v-expand-transition>
 
               <v-card-actions class="mb-10 mt-5">
-                <v-btn block color="primary" dark to="/steps">비과세가 아니라면 계산 시작하기</v-btn>
+                <v-btn block color="primary" dark to="/cards">비과세가 아니라면 계산 시작하기</v-btn>
               </v-card-actions>
             </v-card>
             <!--/v-flex-->

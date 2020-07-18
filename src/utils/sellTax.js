@@ -1,5 +1,5 @@
 export default {
-  getTaxRateForHouse(taxBase, controlArea, houseCnt) {
+  getTaxRateForHouse(taxBase, area, houseCnt) {
     var taxRate = 0;
     if (taxBase <= 0) {
       taxRate = 0;
@@ -21,12 +21,12 @@ export default {
       taxRate = 0.42;
     }
 
-    if (controlArea === 1 && houseCnt === 2) {
+    if (area === 1 && houseCnt === 2) {
       // 조정대상지역 2주택
       taxRate = taxRate + 0.1;
     }
 
-    if (controlArea === 1 && houseCnt === 3) {
+    if (area === 1 && houseCnt === 3) {
       // 조정대상지역 3주택
       taxRate = taxRate + 0.2;
     }
