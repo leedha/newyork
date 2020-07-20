@@ -105,7 +105,7 @@
                   </v-card-text>
 
                   <v-card-actions>
-                    <v-btn min-width="48%" color="primary" @click="e6 = 2, step1();">다음</v-btn>
+                    <v-btn min-width="48%" color="indigo" @click="e6 = 2, step1();">다음</v-btn>
                     <v-btn min-width="48%" to="/ahead">취소</v-btn>
                   </v-card-actions>
                 </v-card>
@@ -156,7 +156,7 @@
                   </v-card-text>
 
                   <v-card-actions>
-                    <v-btn min-width="48%" color="primary" @click="(e6 = 3), step2();">다음</v-btn>
+                    <v-btn min-width="48%" color="indigo" @click="(e6 = 3), step2();">다음</v-btn>
                     <v-btn min-width="48%" @click="e6 = 1">취소</v-btn>
                   </v-card-actions>
                 </v-card>
@@ -201,7 +201,7 @@
                   </v-card-text>
 
                   <v-card-actions>
-                    <v-btn min-width="48%" color="primary" @click="(e6 = 4), step3();">다음</v-btn>
+                    <v-btn min-width="48%" color="indigo" @click="(e6 = 4), step3();">다음</v-btn>
                     <v-btn min-width="48%" @click="e6 = 2">취소</v-btn>
                   </v-card-actions>
                 </v-card>
@@ -316,7 +316,7 @@
                   </v-card-text>
 
                   <v-card-actions>
-                    <v-btn min-width="48%" color="primary" to="/result" @click.native="step4();">완료</v-btn>
+                    <v-btn min-width="48%" color="indigo" to="/result" @click.native="step4();">완료</v-btn>
                     <v-btn min-width="48%" @click="e6 = 3">취소</v-btn>
                   </v-card-actions>
                 </v-card>

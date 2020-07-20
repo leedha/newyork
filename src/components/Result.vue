@@ -1,16 +1,18 @@
 <template>
   <v-app>
-    <v-app-bar app dark color="blue darken-4">
+    <v-app-bar app dark color="indigo darken-4">
       <v-toolbar-title>양도소득세 계산결과</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
       <v-container fluid grid-list-md>
-        <v-row align="center">
+        <v-row align="center" justify="center">
           <v-col>
             <v-card flat>
-              <v-card-text>** 계산결과는 참고용으로 사용해주세요.</v-card-text>
               <v-card-text>
+                ** 계산결과는 참고용으로 사용해주세요.
+                <br />
+                <br />
                 <v-expansion-panels accordion multiple dark>
                   <v-expansion-panel>
                     <v-expansion-panel-header color="indigo darken-4">
@@ -457,8 +459,8 @@
               <v-divider class="mx-4"></v-divider>
 
               <v-card-actions class="mt-3 pb-7">
-                <v-btn color="primary" min-width="48%" dark to="/start">처음으로</v-btn>
-                <v-btn color="primary" min-width="48%" dark to="/cards">다시계산</v-btn>
+                <v-btn color="indigo accent-4" min-width="48%" dark to="/start">처음으로</v-btn>
+                <v-btn color="indigo accent-4" min-width="48%" dark to="/cards">다시계산</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>

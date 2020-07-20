@@ -1,48 +1,46 @@
 <template>
   <v-app>
-    <v-app-bar app dark color="blue darken-4">
+    <v-app-bar app dark color="indigo darken-4">
       <v-toolbar-title>비과세인지 확인해보기</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
       <v-container fluid grid-list-md>
-        <!--v-layout row wrap-->
-        <!--v-flex xs12 sm6 md4 lg3 xl2-->
         <v-row align="center" justify="center">
           <v-col>
-            <v-card flat>
+            <v-card dark flat color="indigo darken-4" class="ma-4 pa-2">
               <v-card-title class="font-weight-bold">
                 *1세대1주택이고
                 <br />2년 이상 보유해야 합니다.
               </v-card-title>
 
               <v-card-actions>
-                <v-chip class="ml-2 mt-n3" @click="show1 = !show1" color="primary">**1세대1주택 이란?</v-chip>
+                <v-chip dark class="ml-2 mt-n3" @click="show1 = !show1" color="indigo">**1세대1주택 이란?</v-chip>
               </v-card-actions>
 
               <v-expand-transition>
-                <div v-show="show1">
-                  <div class="bg-bl-lt">
-                    <v-card-text>
-                      <v-icon small color="blue darken-1">mdi-check</v-icon>주민등록상 동일 주소지의 구성원 중에 별도의 집(또는 조합원 입주권)을 소유한 사람이
-                      <b>없어야</b>
-                      1세대1주택으로 인정. (※분양권은 해당사항 없음)
-                      <br />
-                      <v-icon small color="blue darken-1">mdi-check</v-icon>
-                      <b>부부</b>
-                      는 별도 세대로 주민등록이 되어있어도
-                      1세대로 간주하기 때문에,
-                      별거 중이라 할지라도
-                      부부가 각각 주택을 소유하고 있다면
-                      <b>1세대2주택</b>으로 인정
-                      <br />※ 단, 동일년도에
-                      <b>2개</b>
-                      이상의 주택을 매각할 시
-                      <b>합산과세</b>
-                      대상 이지만,
-                      마지막에 양도한 주택이 비과세 요건 충족시 비과세
-                    </v-card-text>
-                  </div>
+                <div v-show="show1" class="bg-bx-lt">
+                  <v-card-text>
+                    <v-icon small color="indigo darken-1">mdi-check</v-icon>&nbsp;주민등록상 동일 주소지의 구성원 중에 별도의 집(또는 조합원 입주권)을 소유한 사람이
+                    <span class="fc-pk">없어야</span>
+                    1세대1주택으로 인정. (※분양권은 해당사항 없음)
+                    <br />
+                    <br />
+                    <v-icon small color="indigo darken-1">mdi-check</v-icon>&nbsp;
+                    <span class="fc-pk">부부</span>
+                    는 별도 세대로 주민등록이 되어있어도
+                    1세대로 간주하기 때문에,
+                    별거 중이라 할지라도
+                    부부가 각각 주택을 소유하고 있다면
+                    <span
+                      class="fc-pk"
+                    >1세대 2주택</span>으로 인정
+                    <br />
+                    <br />※ 단, 동일년도에
+                    <span class="fc-pk">2개 이상</span>의 주택을 매각할 시
+                    <span class="fc-pk">합산과세</span>대상 이지만,
+                    마지막에 양도한 주택이 비과세 요건 충족시 비과세
+                  </v-card-text>
                 </div>
               </v-expand-transition>
 
@@ -57,52 +55,58 @@
 
               <v-card-actions>
                 <v-chip
+                  dark
                   class="ml-2 mt-n3"
                   @click="show2 = !show2"
-                  color="primary"
+                  color="indigo"
                 >**대체 취득으로 인한 일시적 2주택 이란?</v-chip>
               </v-card-actions>
 
               <v-expand-transition>
-                <div v-show="show2">
-                  <div class="bg-bl-lt">
-                    <v-card-text>
-                      주택 1채를 소유한 1세대가 새로운 주택으로 2주택이 된 경우,
-                      <br />
-                      <v-icon small color="blue darken-1">mdi-check</v-icon>기존 주택 취득한 날로부터
-                      <b>1년</b> 이상 경과된 후에 신규 주택 취득하고,
-                      <br />
-                      <v-icon small color="blue darken-1">mdi-check</v-icon>신규 주택 취득한지
-                      <b>3년</b> 이내 기존 주택 처분하는 경우
-                      <br />※ 단,
-                      <b>신규 주택과 기존 주택이 모두 조정대상지역</b>이며,
-                      <b>2018년 9월13일 이후</b>에 취득한 경우
-                      <b>2년</b> 이내 기존주택 처분
-                      <b>2019년 12월17일 이후</b>에 취득한 경우
-                      <b>1년</b> 이내 기존주택 처분하고 1년 이내 신규 주택으로 전입까지 해야 비과세 적용
-                      <br />※ 단,
-                      <b>조정대상지역</b>일지라도,
-                      <b>2018년 9월13일 이전</b>에 매매 또는 입주권, 분양권 계약한 경우
-                      <b>3년</b>
-                      이내 기존 주택 처분
-                    </v-card-text>
-                  </div>
+                <div v-show="show2" class="bg-bx-lt">
+                  <v-card-text>
+                    주택 1채를 소유한 1세대가 새로운 주택으로 2주택이 된 경우,
+                    <br />
+                    <v-icon small color="indigo darken-1">mdi-check</v-icon>&nbsp;기존 주택 취득한 날로부터
+                    <span class="fc-pk">1년</span> 이상 경과된 후에 신규 주택 취득하고,
+                    <br />
+                    <v-icon small color="indigo darken-1">mdi-check</v-icon>&nbsp;신규 주택 취득한지
+                    <span class="fc-pk">3년</span> 이내 기존 주택 처분하는 경우
+                    <br />
+                    <br />※ 단,
+                    <span class="fc-pk">신규 주택과 기존 주택이 모두 조정대상지역</span>이며,
+                    <span class="fc-pk">2018년 9월13일 이후</span>에 취득한 경우
+                    <span class="fc-pk">2년 이내</span> 기존주택 처분해야 하고,
+                    <br />
+                    <span class="fc-pk">2019년 12월17일 이후</span>에 취득한 경우
+                    <span class="fc-pk">1년 이내</span> 기존주택 처분하고
+                    <span class="fc-pk">1년 이내</span> 신규 주택으로 전입까지 해야 비과세 적용
+                    <br />
+                    <br />※ 단,
+                    <span class="fc-pk">조정대상지역</span>일지라도,
+                    <span class="fc-pk">2018년 9월13일 이전</span>에 매매 또는 입주권, 분양권 계약한 경우
+                    <span class="fc-pk">3년</span>
+                    이내 기존 주택 처분
+                  </v-card-text>
                 </div>
               </v-expand-transition>
 
               <v-card-actions>
-                <v-chip class="ml-2" @click="show3 = !show3" color="primary">**동거 봉양ㆍ혼인으로 인한 2주택 이란?</v-chip>
+                <v-chip
+                  dark
+                  class="ml-2"
+                  @click="show3 = !show3"
+                  color="indigo"
+                >**동거 봉양ㆍ혼인으로 인한 2주택 이란?</v-chip>
               </v-card-actions>
 
               <v-expand-transition>
-                <div v-show="show3">
-                  <div class="bg-bl-lt">
-                    <v-card-text>
-                      <v-icon small color="blue darken-1">mdi-check</v-icon>부모를 모시거나 혼인 때문에 2주택이 된 경우,
-                      <br />결혼한 날(또는 부모를 모시게 된 날)로부터
-                      <b>5년</b> 이내에 먼저 양도한 주택은 비과세 적용
-                    </v-card-text>
-                  </div>
+                <div v-show="show3" class="bg-bx-lt">
+                  <v-card-text>
+                    <v-icon small color="indigo darken-1">mdi-check</v-icon>&nbsp;부모를 모시거나 혼인 때문에 2주택이 된 경우,
+                    <br />결혼한 날 (또는 부모를 모시게 된 날)로부터
+                    <span class="fc-pk">5년 이내</span> 에 먼저 양도한 주택은 비과세 적용
+                  </v-card-text>
                 </div>
               </v-expand-transition>
 
@@ -114,7 +118,7 @@
               </v-card-title>
               <v-card-subtitle>
                 9억 초과시 고가주택으로 분류되어
-                9억 초과분에 대해서는 과세됩니다.
+                <span class="fc-pk">9억 초과분에 대해서는 과세</span>됩니다.
               </v-card-subtitle>
 
               <v-divider></v-divider>
@@ -125,41 +129,51 @@
               </v-card-title>
 
               <v-card-actions>
-                <v-chip class="ml-2 mt-n3" @click="show4 = !show4" color="primary">**조정대상지역 이란?</v-chip>
+                <v-chip dark class="ml-2 mt-n3" @click="show4 = !show4" color="indigo">**조정대상지역 이란?</v-chip>
               </v-card-actions>
 
               <v-expand-transition>
-                <div v-show="show4">
-                  <div class="bg-bl-lt">
-                    <v-card-text>
-                      <v-icon small color="blue darken-1">mdi-check</v-icon>조정대상지역에 있는 주택은 공고일 이후 (해제된 지역일 경우 해제일 이전) 취득한 경우에
-                      <br />다주택자는 장기보유 특별 공제 대상 배제 및 2020년 7월부터 2주택자 10%p, 3주택자 20%p 추가세율 적용
-                      <br />
-                      <v-icon small color="blue darken-1">mdi-check</v-icon>일시적 2주택 비과세 특례 요건 강화
-                      <br />
-                    </v-card-text>
-                  </div>
+                <div v-show="show4" class="bg-bx-lt">
+                  <v-card-text>
+                    조정대상지역에 있는 주택은
+                    <span class="fc-pk">공고일 이후 (해제된 지역일 경우 해제일 이전) 취득</span>한 경우
+                    <br />
+                    <v-icon small color="indigo darken-1">mdi-check</v-icon>&nbsp;다주택자는
+                    <span class="fc-pk">장기보유 특별 공제 대상 배제</span>
+                    <br />
+                    <v-icon small color="indigo darken-1">mdi-check</v-icon>&nbsp;2020년 7월부터
+                    <span class="fc-pk">다주택자 중과세</span> (2주택자 10%p, 3주택자 20%p 추가세율 적용)
+                    <br />
+                    <v-icon small color="indigo darken-1">mdi-check</v-icon>&nbsp;일시적 2주택 비과세 특례 요건 강화
+                    <span class="fc-pk">(대체 취득으로 인한 일시적 2주택 항목 참조)</span>
+                    <br />
+                  </v-card-text>
                 </div>
               </v-expand-transition>
 
               <v-card-actions>
-                <v-chip class="ml-2" @click="show5 = !show5" color="primary">지역별로 **조정대상지역 간단히 보기</v-chip>
+                <v-chip
+                  dark
+                  class="ml-2"
+                  @click="show5 = !show5"
+                  color="indigo"
+                >지역별로 **조정대상지역 간단히 보기</v-chip>
               </v-card-actions>
 
               <v-expand-transition>
                 <div v-show="show5">
-                  <v-simple-table dense class="elevation-1 mb-5">
+                  <v-simple-table dense light class="elevation-1 mb-5">
                     <thead>
                       <tr>
-                        <th colspan="3" class="text-center bg-tbl">서울</th>
+                        <th colspan="3" class="text-center bg-tbl-1">서울</th>
                       </tr>
-                      <tr class="bg-tbl-lt">
+                      <tr class="bg-tbl-2">
                         <th>지역</th>
                         <th>지정공고일</th>
                         <th>해제공고일</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-tbl-3">
                       <tr>
                         <th>전체</th>
                         <th>2017.9.6</th>
@@ -168,15 +182,15 @@
                     </tbody>
                     <thead>
                       <tr>
-                        <th colspan="3" class="text-center bg-tbl">부산</th>
+                        <th colspan="3" class="text-center bg-tbl-1">부산</th>
                       </tr>
-                      <tr class="bg-tbl-lt">
+                      <tr class="bg-tbl-2">
                         <th>지역</th>
                         <th>지정공고일</th>
                         <th>해제공고일</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-tbl-3">
                       <tr>
                         <th>해운대구</th>
                         <th>2017.09.06</th>
@@ -220,15 +234,15 @@
                     </tbody>
                     <thead>
                       <tr>
-                        <th colspan="3" class="text-center bg-tbl">경기 (제외지역은 자세히보기 참조)</th>
+                        <th colspan="3" class="text-center bg-tbl-1">경기 (제외지역은 자세히보기 참조)</th>
                       </tr>
-                      <tr class="bg-tbl-lt">
+                      <tr class="bg-tbl-2">
                         <th>지역</th>
                         <th>지정공고일</th>
                         <th>해제공고일</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-tbl-3">
                       <tr>
                         <th>과천시</th>
                         <th>2017.09.06</th>
@@ -396,15 +410,15 @@
                     </tbody>
                     <thead>
                       <tr>
-                        <th colspan="3" class="text-center bg-tbl">인천</th>
+                        <th colspan="3" class="text-center bg-tbl-1">인천</th>
                       </tr>
-                      <tr class="bg-tbl-lt">
+                      <tr class="bg-tbl-2">
                         <th>지역</th>
                         <th>지정공고일</th>
                         <th>해제공고일</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-tbl-3">
                       <tr>
                         <th>연수구</th>
                         <th>2020.06.19</th>
@@ -448,15 +462,15 @@
                     </tbody>
                     <thead>
                       <tr>
-                        <th colspan="3" class="text-center bg-tbl">대전</th>
+                        <th colspan="3" class="text-center bg-tbl-1">대전</th>
                       </tr>
-                      <tr class="bg-tbl-lt">
+                      <tr class="bg-tbl-2">
                         <th>지역</th>
                         <th>지정공고일</th>
                         <th>해제공고일</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-tbl-3">
                       <tr>
                         <th>동구</th>
                         <th>2020.06.19</th>
@@ -485,15 +499,15 @@
                     </tbody>
                     <thead>
                       <tr>
-                        <th colspan="3" class="text-center bg-tbl">세종</th>
+                        <th colspan="3" class="text-center bg-tbl-1">세종</th>
                       </tr>
-                      <tr class="bg-tbl-lt">
+                      <tr class="bg-tbl-2">
                         <th>지역</th>
                         <th>지정공고일</th>
                         <th>해제공고일</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-tbl-3">
                       <tr>
                         <th>연기군 금남면</th>
                         <th>2017.09.06</th>
@@ -522,15 +536,15 @@
                     </tbody>
                     <thead>
                       <tr>
-                        <th colspan="3" class="text-center bg-tbl">충북 (제외지역은 자세히보기 참조)</th>
+                        <th colspan="3" class="text-center bg-tbl-1">충북 (제외지역은 자세히보기 참조)</th>
                       </tr>
-                      <tr class="bg-tbl-lt">
+                      <tr class="bg-tbl-2">
                         <th>지역</th>
                         <th>지정공고일</th>
                         <th>해제공고일</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-tbl-3">
                       <tr>
                         <th>
                           청주시
@@ -545,7 +559,12 @@
               </v-expand-transition>
 
               <v-card-actions>
-                <v-chip class="ml-2" @click="show6 = !show6" color="primary">공고일 순으로 **조정대상지역 자세히 보기</v-chip>
+                <v-chip
+                  dark
+                  class="ml-2"
+                  @click="show6 = !show6"
+                  color="indigo"
+                >공고일 순으로 **조정대상지역 자세히 보기</v-chip>
               </v-card-actions>
 
               <v-expand-transition>
@@ -693,12 +712,14 @@
                 </div>
               </v-expand-transition>
 
-              <v-card-actions class="mb-10 mt-5">
-                <v-btn block color="primary" dark to="/cards">비과세가 아니라면 계산 시작하기</v-btn>
+              <br />
+
+              <v-divider class="mx-4"></v-divider>
+
+              <v-card-actions class="mt-3 pb-7">
+                <v-btn dark block color="indigo accent-4" to="/cards">계산 시작하기</v-btn>
               </v-card-actions>
             </v-card>
-            <!--/v-flex-->
-            <!--/v-layout-->
           </v-col>
         </v-row>
       </v-container>

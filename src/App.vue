@@ -22,65 +22,62 @@ export default {
   text-decoration: none;
 }
 
-.bg-gr {
-  background-color: #4CAF50;
-}
-.bg-gr-lt {
-  background-color: #E8F5E9;
+.bg-bx-lt {
+  background-color: #5c6bc0;
 }
 
-.bg-bl-lt {
-  background-color: #E3F2FD;
+.bg-tbl-1 {
+  background-color: #9FA8DA;
 }
-
-.bg-tbl {
-  background-color: #B2EBF2;
+.bg-tbl-2 {
+  background-color: #C5CAE9;
 }
-.bg-tbl-lt {
-  background-color: #E0F7FA;
+.bg-tbl-3 {
+  background-color: #E8EAF6;
 }
-
-
 
 .bg-tl {
-  background-color: #B0BEC5;
+  background-color: #b0bec5;
 }
 .bg-tl-lt {
-  background-color: #ECEFF1;
+  background-color: #eceff1;
 }
 
 .bg-lm {
-  background-color: #D4E157;
+  background-color: #d4e157;
 }
 .bg-lm-lt {
-  background-color: #F0F4C3;
+  background-color: #f0f4c3;
 }
 .bg-lm-dk {
-  background-color: #E6EE9C;
+  background-color: #e6ee9c;
 }
 
 .fc-wt {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .fc-bl {
   color: #000000;
 }
 .fc-gr {
-  color: #43A047;
+  color: #43a047;
 }
 .fc-bl {
-  color: #1E88E5;
+  color: #1e88e5;
 }
 .fc-bl-dk {
-  color: #0D47A1;
+  color: #0d47a1;
 }
 .fc-tl-dk {
-  color: #004D40;
+  color: #004d40;
+}
+.fc-pk {
+  color: #f8bbd0;
 }
 
 .box {
   width: 150px;
-  border: 1px solid #1E88E5;
+  border: 1px solid #1e88e5;
   padding: 10px;
   margin: 10px;
   text-align: center;
