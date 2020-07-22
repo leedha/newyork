@@ -22,18 +22,21 @@ export default {
   text-decoration: none;
 }
 
+.bg-bx {
+  background-color: #3949ab;
+}
 .bg-bx-lt {
   background-color: #5c6bc0;
 }
 
 .bg-tbl-1 {
-  background-color: #9FA8DA;
+  background-color: #9fa8da;
 }
 .bg-tbl-2 {
-  background-color: #C5CAE9;
+  background-color: #c5cae9;
 }
 .bg-tbl-3 {
-  background-color: #E8EAF6;
+  background-color: #e8eaf6;
 }
 
 .bg-tl {
@@ -77,7 +80,7 @@ export default {
 
 .box {
   width: 150px;
-  border: 1px solid #1e88e5;
+  border: 3px solid #f8fbfd;
   padding: 10px;
   margin: 10px;
   text-align: center;

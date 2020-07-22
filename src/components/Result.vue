@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app dark color="indigo darken-4">
+    <v-app-bar app dark color="indigo darken-2">
       <v-toolbar-title>양도소득세 계산결과</v-toolbar-title>
     </v-app-bar>
 
@@ -8,22 +8,22 @@
       <v-container fluid grid-list-md>
         <v-row align="center" justify="center">
           <v-col>
-            <v-card flat>
+            <v-card flat class="text-justify">
               <v-card-text>
                 ** 계산결과는 참고용으로 사용해주세요.
                 <br />
                 <br />
-                <v-expansion-panels accordion multiple dark>
+                <v-expansion-panels accordion multiple dark class="font">
                   <v-expansion-panel>
                     <v-expansion-panel-header color="indigo darken-4">
                       <v-row no-gutters>
                         <v-col>
                           <v-icon small>mdi-check-circle</v-icon>&nbsp;소재지
                         </v-col>
-                        <v-col>---</v-col>
+                        <v-col>{{area}}</v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-4">조정대상지역</v-expansion-panel-content>
+                    <v-expansion-panel-content color="indigo darken-3">조정대상지역이 아닙니다? 맞습니다?</v-expansion-panel-content>
                   </v-expansion-panel>
 
                   <v-expansion-panel>
@@ -38,7 +38,7 @@
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-4">양도일자 {{sellDate}}</v-expansion-panel-content>
+                    <v-expansion-panel-content color="indigo darken-3">양도일자 {{sellDate}}</v-expansion-panel-content>
                   </v-expansion-panel>
 
                   <v-expansion-panel>
@@ -53,7 +53,7 @@
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-4">취득일자 {{buyDate}}</v-expansion-panel-content>
+                    <v-expansion-panel-content color="indigo darken-3">취득일자 {{buyDate}}</v-expansion-panel-content>
                   </v-expansion-panel>
 
                   <v-expansion-panel>
@@ -64,19 +64,21 @@
                         </v-col>
                         <v-col>
                           <v-icon x-small>mdi-currency-krw</v-icon>
+                          {{totalCost | comma}}
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-4">
-                      취득세 {{buyTax | comma}}원
+                    <v-expansion-panel-content color="indigo darken-3">
+                      - 취득세 {{buyTax | comma}}원
                       <br />
-                      법무사비 {{legalCost | comma}}원
+                      - 법무사비 {{legalCost | comma}}원
+                      <br />- 중개수수료
                       <br />
-                      중개수수료 원 (취득 {{brokerFeeBuy | comma}}원 + 양도 {{brokerFeeSell | comma}}원)
+                      (취득시 {{brokerFeeBuy | comma}}원 + 양도시 {{brokerFeeSell | comma}}원)
                       <br />
-                      국민주택채권 매각차손 {{bondLoss | comma}}원
+                      - 국민주택채권 매각차손 {{bondLoss | comma}}원
                       <br />
-                      수리비 {{repairCost | comma}}원
+                      - 수리비 {{repairCost | comma}}원
                       <br />
                       합계 {{totalCost | comma}}원
                     </v-expansion-panel-content>
@@ -94,7 +96,7 @@
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-4">
+                    <v-expansion-panel-content color="indigo darken-3">
                       양도차익 = 양도가액 - 취득가액 - 필요경비
                       <br />
                       <br />1세대1주택 9억 초과인 경우
@@ -115,7 +117,7 @@
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-4">
+                    <v-expansion-panel-content color="indigo darken-3">
                       <v-simple-table dense class="elevation-1 mb-5">
                         <thead>
                           <tr class="bg-gr-l5">
@@ -248,7 +250,7 @@
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-4">양도소득금액 = 양도차익 - 장기보유특별공제</v-expansion-panel-content>
+                    <v-expansion-panel-content color="indigo darken-3">양도소득금액 = 양도차익 - 장기보유특별공제</v-expansion-panel-content>
                   </v-expansion-panel>
 
                   <v-expansion-panel>
@@ -263,7 +265,7 @@
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-4">기본공제 1인당 연간 250만원 한도</v-expansion-panel-content>
+                    <v-expansion-panel-content color="indigo darken-3">기본공제 1인당 연간 250만원 한도</v-expansion-panel-content>
                   </v-expansion-panel>
 
                   <v-expansion-panel>
@@ -278,7 +280,7 @@
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-4">과세표준 = 양도소득금액 - 양도소득기본공제</v-expansion-panel-content>
+                    <v-expansion-panel-content color="indigo darken-3">과세표준 = 양도소득금액 - 양도소득기본공제</v-expansion-panel-content>
                   </v-expansion-panel>
 
                   <v-expansion-panel>
@@ -290,7 +292,7 @@
                         <v-col>{{Number(myTaxRate) * 100}}%</v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-4">
+                    <v-expansion-panel-content color="indigo darken-3">
                       <v-simple-table dense class="elevation-1 mb-5">
                         <thead>
                           <tr class="bg-gr-l5">
@@ -411,7 +413,7 @@
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-4">과세표준 × 세율 = 산출세액</v-expansion-panel-content>
+                    <v-expansion-panel-content color="indigo darken-3">과세표준 × 세율 = 산출세액</v-expansion-panel-content>
                   </v-expansion-panel>
 
                   <v-expansion-panel>
@@ -492,8 +494,8 @@ export default {
     sellType: "",
     sellCnt: "",
     houseCnt: "",
-    livePeriod: "",
     area: "",
+    livePeriod: "",
 
     sellPrice: 0,
     sellDate: "",
@@ -507,7 +509,17 @@ export default {
     brokerFeeSell: 0,
     bondLoss: 0,
     repairCost: 0,
-    joint: ""
+    joint: "",
+
+    totalCost: 0,
+    myMargin: 0,
+    myDiscount: 0,
+    myProfit: 0,
+    myBasicDiscount: 0,
+    myTaxBase: 0,
+    myTaxRate: 0,
+    myTaxAmount: 0,
+    myLocalTax: 0
   }),
 
   filters: {
@@ -526,47 +538,48 @@ export default {
       this.sellType = sellType;
     }
 
-    const houseCnt = localStorage.getItem("houseCnt");
+    var houseCnt = localStorage.getItem("houseCnt");
     if (houseCnt) {
       this.houseCnt = houseCnt;
     }
 
-    const livePeriod = localStorage.getItem("livePeriod");
+    var livePeriod = localStorage.getItem("livePeriod");
     if (livePeriod) {
       this.livePeriod = livePeriod;
     }
 
-    const area = localStorage.getItem("area");
+    var area = localStorage.getItem("area");
     if (area) {
       this.area = area;
     }
 
-    const sellPrice = localStorage.getItem("sellPrice");
+    var sellPrice = localStorage.getItem("sellPrice");
     if (sellPrice) {
       this.sellPrice = sellPrice;
     }
 
-    const sellDate = localStorage.getItem("sellDate");
+    var sellDate = localStorage.getItem("sellDate");
     if (sellDate) {
       this.sellDate = sellDate;
     }
 
-    const buyPrice = localStorage.getItem("buyPrice");
+    var buyPrice = localStorage.getItem("buyPrice");
     if (buyPrice) {
       this.buyPrice = buyPrice;
     }
 
-    const buyDate = localStorage.getItem("buyDate");
+    var buyDate = localStorage.getItem("buyDate");
     if (buyDate) {
       this.buyDate = buyDate;
     }
 
-    const buyTax = localStorage.getItem("buyTax");
+    var buyTax = localStorage.getItem("buyTax");
     if (buyTax) {
       this.buyTax = buyTax;
     }
+    console.log(buyTax);
 
-    const legalCost = localStorage.getItem("legalCost");
+    var legalCost = localStorage.getItem("legalCost");
     if (legalCost) {
       this.legalCost = legalCost;
     }
@@ -581,23 +594,24 @@ export default {
       this.brokerFeeBuy = brokerFeeBuy;
     }
 
-    const bondLoss = localStorage.getItem("bondLoss");
+    var bondLoss = localStorage.getItem("bondLoss");
     if (bondLoss) {
       this.bondLoss = bondLoss;
     }
 
-    const repairCost = localStorage.getItem("repairCost");
+    var repairCost = localStorage.getItem("repairCost");
     if (repairCost) {
       this.repairCost = repairCost;
     }
 
-    const joint = localStorage.getItem("joint");
+    var joint = localStorage.getItem("joint");
     if (joint) {
       this.joint = joint;
     }
+    console.log(joint);
 
     // 필요경비
-    const totalCost =
+    var totalCost =
       Number(buyTax) +
       Number(legalCost) +
       Number(brokerFeeBuy) +
@@ -609,13 +623,13 @@ export default {
     }
 
     // 양도차익
-    const myMargin = margin.getMargin(sellPrice, buyPrice, totalCost, sellType);
+    var myMargin = margin.getMargin(sellPrice, buyPrice, totalCost, sellType);
     if (myMargin) {
       this.myMargin = myMargin;
     }
 
     // 장기보유 특별공제
-    const myDiscount =
+    var myDiscount =
       myMargin *
       discountRate.getDiscountRate(period.getPeriod(sellDate, buyDate));
     if (myDiscount) {
@@ -623,37 +637,37 @@ export default {
     }
 
     // 양도소득금액
-    const myProfit = Number(myMargin) - Number(myDiscount);
+    var myProfit = Number(myMargin) - Number(myDiscount);
     if (myProfit) {
       this.myProfit = myProfit;
     }
 
     // 양도소득 기본공제
-    const myBasicDiscount = Number(joint) * 2500000;
+    var myBasicDiscount = Number(joint) * 2500000;
     if (myBasicDiscount) {
       this.myBasicDiscount = myBasicDiscount;
     }
 
     // 과세표준
-    const myTaxBase = Number(myProfit) - Number(myBasicDiscount);
+    var myTaxBase = Number(myProfit) - Number(myBasicDiscount);
     if (myTaxBase) {
       this.myTaxBase = myTaxBase;
     }
 
     // 세율
-    const myTaxRate = sellTax.getTaxRateForHouse(myTaxBase, area, houseCnt);
+    var myTaxRate = sellTax.getTaxRateForHouse(myTaxBase, area, houseCnt);
     if (myTaxRate) {
       this.myTaxRate = myTaxRate;
     }
 
     // 산출세액 (양도소득세)
-    const myTaxAmount = Number(myTaxBase) * Number(myTaxRate);
+    var myTaxAmount = Number(myTaxBase) * Number(myTaxRate);
     if (myTaxAmount) {
       this.myTaxAmount = myTaxAmount;
     }
 
     // 지방소득세
-    const myLocalTax = Number(myTaxAmount) * 0.1;
+    var myLocalTax = Number(myTaxAmount) * 0.1;
     if (myLocalTax) {
       this.myLocalTax = myLocalTax;
     }

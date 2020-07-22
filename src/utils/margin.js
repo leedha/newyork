@@ -2,7 +2,7 @@ export default {
   getMargin(sellPrice, buyPrice, totalCost, sellType) {
     var margin = Number(sellPrice) - Number(buyPrice) - Number(totalCost);
 
-    console.log(margin);
+    //console.log(margin);
 
     var taxFreeMargin = 0;
 
@@ -11,7 +11,7 @@ export default {
       taxFreeMargin =
         margin - (margin * (Number(sellPrice) - 900000000)) / Number(sellPrice); // 비과세 되는 양도차익
 
-      console.log(taxFreeMargin);
+      //console.log(taxFreeMargin);
 
       margin = Number(margin) - Number(taxFreeMargin); // 과세되는 양도차익
     }

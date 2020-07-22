@@ -1,12 +1,11 @@
 <template>
   <v-app id="inspire">
     <v-main>
-      <!--v-content-->
-      <v-container fluid grid-list-md>
+      <v-container fluid grid-list-md justify="center">
         <!--v-layout row wrap-->
         <!--v-flex xs12 sm6 md4 lg3 xl2-->
-        <v-card flat class="mt-12 pt-12 pb-12 pa-5 mx-auto">
-          <div class="box font-weight-bold display-1 fc-bl">
+        <v-card flat dark class="ma-4 pt-16 pa-5" color="indigo darken-4" >
+          <div class="box font-weight-bold display-1">
             양도
             <br />소득세
             <br />계산기
@@ -20,14 +19,13 @@
             <br />#세법설명 #상세한설명
           </v-card-text>
 
-          <v-card-actions class="mt-12">
-            <v-btn dark block color="primary" to="/ahead">시작하기</v-btn>
+          <v-card-actions class="mt-16 mb-16">
+            <v-btn dark block color="indigo accent-4" to="/ahead">시작하기</v-btn>
           </v-card-actions>
         </v-card>
         <!--/v-flex-->
         <!--/v-layout-->
       </v-container>
-      <!--/v-content-->
     </v-main>
   </v-app>
 </template>

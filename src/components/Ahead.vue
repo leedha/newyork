@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app dark color="indigo darken-4">
+    <v-app-bar app dark color="indigo darken-2">
       <v-toolbar-title>비과세인지 확인해보기</v-toolbar-title>
     </v-app-bar>
 
