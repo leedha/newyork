@@ -1,14 +1,14 @@
 <template>
   <v-app>
     <v-app-bar app dark color="indigo darken-2">
-      <v-toolbar-title>양도소득세 계산결과</v-toolbar-title>
+      <v-toolbar-title class="text-center">양도소득세 계산결과</v-toolbar-title>
     </v-app-bar>
 
-    <v-main>
-      <v-container fluid grid-list-md>
-        <v-row align="center" justify="center">
+    <v-main class="indigo darken-4">
+      <v-container align="center" justify="center">
+        <v-row>
           <v-col>
-            <v-card flat class="text-justify">
+            <v-card flat color="indigo lighten-4">
               <v-card-text>
                 ** 계산결과는 참고용으로 사용해주세요.
                 <br />
@@ -20,10 +20,18 @@
                         <v-col>
                           <v-icon small>mdi-check-circle</v-icon>&nbsp;소재지
                         </v-col>
-                        <v-col>{{area}}</v-col>
+                        <v-col>
+                          <span class="fc-pk" v-if="area === '1'">조정대상지역</span>
+                          <span class="fc-pk" v-else>조정대상지역 아닌 지역</span>
+                        </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-3">조정대상지역이 아닙니다? 맞습니다?</v-expansion-panel-content>
+                    <v-expansion-panel-content color="indigo darken-3">
+                      조정대상지역인 경우
+                      <br />- 다주택자 장기보유 특별 공제 적용 배제
+                      <br />- 2020년 7월부터 다주택자 중과세 (2주택자 10%p, 3주택자 20%p 추가세율 적용)
+                      <br />- 일시적 2주택 비과세 특례 요건 강화
+                    </v-expansion-panel-content>
                   </v-expansion-panel>
 
                   <v-expansion-panel>
@@ -118,14 +126,22 @@
                       </v-row>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content color="indigo darken-3">
-                      <v-simple-table dense class="elevation-1 mb-5">
+                      <div>
+                        <v-icon small color="blue darken-1">mdi-check</v-icon>조정대상지역이
+                        <span class="fc-pk">아닌</span> 다주택자는 공제
+                        <span class="fc-pk">가능</span>
+                        <br />
+                        <v-icon small color="blue darken-1">mdi-check</v-icon>조정대상지역 내 다주택자는 공제 불가
+                      </div>
+
+                      <v-simple-table dense light class="elevation-1 mt-5 mb-5">
                         <thead>
-                          <tr class="bg-gr-l5">
+                          <tr class="bg-tbl-1">
                             <th>보유기간</th>
                             <th>공제율</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="bg-tbl-3">
                           <tr>
                             <th>3년이상~4년미만</th>
                             <th>6%</th>
@@ -181,20 +197,20 @@
                         </tbody>
                       </v-simple-table>
 
-                      <v-simple-table dense class="elevation-1 mb-5">
+                      <v-simple-table dense light class="elevation-1 mb-5">
                         <thead>
-                          <tr class="bg-gr-l4">
+                          <tr class="bg-tbl-1">
                             <th colspan="2">
                               1세대1주택 9억 초과 주택
                               <br />(2년 이상 거주시 9억초과분에 한해서)
                             </th>
                           </tr>
-                          <tr class="bg-gr-l5">
+                          <tr class="bg-tbl-2">
                             <th>보유기간</th>
                             <th>공제율</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="bg-tbl-3">
                           <tr>
                             <th>3년이상~4년미만</th>
                             <th>24%</th>
@@ -229,12 +245,6 @@
                           </tr>
                         </tbody>
                       </v-simple-table>
-
-                      <div>
-                        <v-icon small color="blue darken-1">mdi-check</v-icon>조정대상지역 외 다주택자는 공제 가능
-                        <br />
-                        <v-icon small color="blue darken-1">mdi-check</v-icon>조정대상지역 내 다주택자는 공제 불가
-                      </div>
                     </v-expansion-panel-content>
                   </v-expansion-panel>
 
@@ -293,14 +303,14 @@
                       </v-row>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content color="indigo darken-3">
-                      <v-simple-table dense class="elevation-1 mb-5">
+                      <v-simple-table dense light class="elevation-1 mt-5 mb-5">
                         <thead>
-                          <tr class="bg-gr-l5">
+                          <tr class="bg-tbl-1">
                             <th>과세표준액</th>
                             <th>기본세율</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="bg-tbl-3">
                           <tr>
                             <th>1,200만원이하</th>
                             <th>6%</th>
@@ -331,30 +341,32 @@
                           </tr>
                           <tr>
                             <th colspan="2">
-                              조정대상지역 1가구 2주택 (입주권 포함)
+                              조정대상지역 1가구 2주택
+                              <br />(입주권 포함, 2021년부터 분양권 포함)
                               <br />: 기본세율 + 10%
                             </th>
                           </tr>
                           <tr>
                             <th colspan="2">
-                              조정대상지역 1가구 3주택 (입주권 포함)
+                              조정대상지역 1가구 3주택
+                              <br />(입주권 포함, 2021년부터 분양권 포함)
                               <br />: 기본세율 + 20%
                             </th>
                           </tr>
                         </tbody>
                       </v-simple-table>
 
-                      <v-simple-table dense class="elevation-1 mb-5">
+                      <v-simple-table dense light class="elevation-1 mb-5">
                         <thead>
-                          <tr class="bg-gr-l4">
+                          <tr class="bg-tbl-1">
                             <th colspan="2">(조합원) 입주권 (2021년부터 변동됨)</th>
                           </tr>
-                          <tr class="bg-gr-l5">
+                          <tr class="bg-tbl-2">
                             <th>보유기간</th>
                             <th>세율</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="bg-tbl-3">
                           <tr>
                             <th>1년미만</th>
                             <th>40% (2021년 50%)</th>
@@ -370,17 +382,17 @@
                         </tbody>
                       </v-simple-table>
 
-                      <v-simple-table dense class="elevation-1 mb-5">
+                      <v-simple-table dense light class="elevation-1 mb-5">
                         <thead>
-                          <tr class="bg-gr-l4">
+                          <tr class="bg-tbl-1">
                             <th colspan="2">분양권 (2021년 동일)</th>
                           </tr>
-                          <tr class="bg-gr-l5">
+                          <tr class="bg-tbl-2">
                             <th>보유기간</th>
                             <th>세율</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="bg-tbl-3">
                           <tr>
                             <th>1년미만</th>
                             <th>50%</th>
@@ -461,8 +473,8 @@
               <v-divider class="mx-4"></v-divider>
 
               <v-card-actions class="mt-3 pb-7">
-                <v-btn color="indigo accent-4" min-width="48%" dark to="/start">처음으로</v-btn>
-                <v-btn color="indigo accent-4" min-width="48%" dark to="/cards">다시계산</v-btn>
+                <v-btn color="indigo accent-4" min-width="49.7%" dark to="/start">처음으로</v-btn>
+                <v-btn color="indigo accent-4" min-width="49.7%" dark to="/cards">다시계산</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>

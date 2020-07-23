@@ -4,11 +4,11 @@
       <v-toolbar-title>양도소득세 계산 시작하기</v-toolbar-title>
     </v-app-bar>
 
-    <v-main>
-      <v-container fluid grid-list-md>
-        <v-row align="center" justify="center">
+    <v-main class="indigo darken-4">
+      <v-container align="center" justify="center">
+        <v-row >
           <v-col>
-            <v-card dark flat color="indigo darken-4" class="ma-4 pa-2">
+            <v-card dark flat color="indigo darken-4">
               <v-card-title>Q1. 주택 매각 갯수</v-card-title>
               <div class="bg-bx">
                 <v-card-subtitle>

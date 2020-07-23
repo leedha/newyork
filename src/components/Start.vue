@@ -1,10 +1,8 @@
 <template>
   <v-app id="inspire">
-    <v-main>
-      <v-container fluid grid-list-md justify="center">
-        <!--v-layout row wrap-->
-        <!--v-flex xs12 sm6 md4 lg3 xl2-->
-        <v-card flat dark class="ma-4 pt-16 pa-5" color="indigo darken-4" >
+    <v-main class="indigo darken-4">
+      <v-container align="center" justify="center">
+        <v-card flat dark class="ma-4 pt-16 pa-5" color="indigo darken-4">
           <div class="box font-weight-bold display-1">
             양도
             <br />소득세
@@ -23,8 +21,6 @@
             <v-btn dark block color="indigo accent-4" to="/ahead">시작하기</v-btn>
           </v-card-actions>
         </v-card>
-        <!--/v-flex-->
-        <!--/v-layout-->
       </v-container>
     </v-main>
   </v-app>

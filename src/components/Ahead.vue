@@ -4,11 +4,11 @@
       <v-toolbar-title>비과세인지 확인해보기</v-toolbar-title>
     </v-app-bar>
 
-    <v-main>
-      <v-container fluid grid-list-md>
-        <v-row align="center" justify="center">
+    <v-main class="indigo darken-4">
+      <v-container align="center" justify="center">
+        <v-row>
           <v-col>
-            <v-card dark flat color="indigo darken-4" class="ma-4 pa-2">
+            <v-card dark flat color="indigo darken-4">
               <v-card-title class="font-weight-bold">
                 *1세대1주택이고
                 <br />2년 이상 보유해야 합니다.
