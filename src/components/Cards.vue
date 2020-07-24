@@ -6,9 +6,9 @@
 
     <v-main class="indigo darken-4">
       <v-container align="center" justify="center">
-        <v-row >
+        <v-row>
           <v-col>
-            <v-card dark flat color="indigo darken-4">
+            <v-card dark flat color="indigo darken-4" class="pa-2">
               <v-card-title>Q1. 주택 매각 갯수</v-card-title>
               <div class="bg-bx">
                 <v-card-subtitle>
@@ -181,7 +181,9 @@
               <v-card-title>Q8. 필요경비</v-card-title>
               <v-card-subtitle>
                 (세금)계산서, 신용카드 매출전표, 현금영수증 등의 증빙서류가 없는 경우
-                <br />청구서나 은행계좌 송금내역 등이 확인되면 필요 경비로 인정
+                <span
+                  class="fc-pk"
+                >청구서나 은행계좌 송금내역 등이 확인되면 필요 경비로 인정</span>
               </v-card-subtitle>
               <v-card-text>
                 <v-text-field
@@ -269,9 +271,10 @@
               <v-card-title>Q9. 공동명의 여부</v-card-title>
               <div class="bg-bx">
                 <v-card-subtitle>
-                  기본공제 1인당 연간 250만원 한도
+                  기본공제 1인당 연간
+                  <span class="fc-pk">250만원 한도</span>
                   <br />(※단, 1년에 2채 매각시 1회만 가능)
-                  <br />예) 부부공동명의인 경우 1년에 500만원 한도
+                  <br />예) 부부 공동명의인 경우 1년에 500만원 한도
                 </v-card-subtitle>
               </div>
               <v-card-text>
@@ -307,7 +310,7 @@ import buyTax from "../utils/buyTax";
 import brokerFee from "../utils/brokerFee";
 
 const currencyMask = createNumberMask({
-  prefix: ""
+  prefix: "",
   //allowDecimal: false,
   //includeThousandsSeparator: true,
   //allowNegative: false
@@ -338,7 +341,7 @@ export default {
     brokerFeeSell: "",
     bondLoss: "",
     repairCost: "",
-    joint: ""
+    joint: "",
   }),
 
   methods: {
@@ -384,7 +387,7 @@ export default {
       } else if (type === "brokerFeeSell") {
         this.brokerFeeSell = brokerFee.getBrokerFee(this.sellPrice);
       }
-    }
+    },
   },
 
   mounted() {
@@ -449,6 +452,6 @@ export default {
     }
   },
 
-  computed: {}
+  computed: {},
 };
 </script>

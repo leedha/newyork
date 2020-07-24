@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
 };
 </script>
 
@@ -30,13 +30,13 @@ export default {
 }
 
 .bg-tbl-1 {
-  background-color: #9fa8da;
+  background-color: #7986cb;
 }
 .bg-tbl-2 {
-  background-color: #c5cae9;
+  background-color: #9fa8da;
 }
 .bg-tbl-3 {
-  background-color: #e8eaf6;
+  background-color: #c5cae9;
 }
 
 .bg-tl {

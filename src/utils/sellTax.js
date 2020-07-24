@@ -21,12 +21,12 @@ export default {
       taxRate = 0.42;
     }
 
-    if (area === 1 && houseCnt === 2) {
+    if (area === "1" && houseCnt === "2") {
       // 조정대상지역 2주택
       taxRate = taxRate + 0.1;
     }
 
-    if (area === 1 && houseCnt === 3) {
+    if (area === "1" && houseCnt === "3") {
       // 조정대상지역 3주택
       taxRate = taxRate + 0.2;
     }
@@ -97,9 +97,9 @@ export default {
     return taxRate;
   },
 
-  getTaxRate(sellType, taxBase, period, houseCnt, controlArea) {
+  getTaxType(sellType, taxBase, period, houseCnt, area) {
     if (sellType === "house") {
-      return this.getTaxRateForHouse(taxBase, controlArea, houseCnt);
+      return this.getTaxRateForHouse(taxBase, area, houseCnt);
     } else if (sellType === "residenceRight") {
       return this.getTaxRateForResidenceRight(taxBase, period);
     } else if (sellType === "ownRight") {

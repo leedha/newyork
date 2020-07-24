@@ -22,7 +22,7 @@
                         </v-col>
                         <v-col>
                           <span class="fc-pk" v-if="area === '1'">조정대상지역</span>
-                          <span class="fc-pk" v-else>조정대상지역 아닌 지역</span>
+                          <span class="fc-pk" v-else>조정대상지역 아님</span>
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
@@ -41,8 +41,8 @@
                           <v-icon small>mdi-check-circle</v-icon>&nbsp;양도가액
                         </v-col>
                         <v-col>
-                          <v-icon x-small>mdi-currency-krw</v-icon>
-                          {{sellPrice | comma}}원
+                          <v-icon x-small color="pink lighten-4">mdi-currency-krw</v-icon>&nbsp;
+                          <span class="fc-pk">{{sellPrice | comma}}</span>
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
@@ -56,8 +56,8 @@
                           <v-icon small>mdi-check-circle</v-icon>&nbsp;취득가액
                         </v-col>
                         <v-col>
-                          <v-icon x-small>mdi-currency-krw</v-icon>
-                          {{buyPrice | comma}}원
+                          <v-icon x-small color="pink lighten-4">mdi-currency-krw</v-icon>&nbsp;
+                          <span class="fc-pk">{{buyPrice | comma}}</span>
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
@@ -71,24 +71,26 @@
                           <v-icon small>mdi-check-circle</v-icon>&nbsp;필요경비
                         </v-col>
                         <v-col>
-                          <v-icon x-small>mdi-currency-krw</v-icon>
-                          {{totalCost | comma}}
+                          <v-icon x-small color="pink lighten-4">mdi-currency-krw</v-icon>&nbsp;
+                          <span class="fc-pk">{{totalCost | comma}}</span>
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content color="indigo darken-3">
-                      - 취득세 {{buyTax | comma}}원
-                      <br />
-                      - 법무사비 {{legalCost | comma}}원
+                      - 취득세
+                      <span class="fc-pk">{{buyTax | comma}}원</span>
+                      <br />- 법무사비
+                      <span class="fc-pk">{{legalCost | comma}}원</span>
                       <br />- 중개수수료
-                      <br />
-                      (취득시 {{brokerFeeBuy | comma}}원 + 양도시 {{brokerFeeSell | comma}}원)
-                      <br />
-                      - 국민주택채권 매각차손 {{bondLoss | comma}}원
-                      <br />
-                      - 수리비 {{repairCost | comma}}원
-                      <br />
-                      합계 {{totalCost | comma}}원
+                      <br />(취득시
+                      <span class="fc-pk">{{brokerFeeBuy | comma}}원</span> + 양도시
+                      <span class="fc-pk">{{brokerFeeSell | comma}}원</span>)
+                      <br />- 국민주택채권 매각차손
+                      <span class="fc-pk">{{bondLoss | comma}}원</span>
+                      <br />- 수리비
+                      <span class="fc-pk">{{repairCost | comma}}원</span>
+                      <br />합계
+                      <span class="fc-pk">{{totalCost | comma}}원</span>
                     </v-expansion-panel-content>
                   </v-expansion-panel>
 
@@ -99,8 +101,8 @@
                           <v-icon small>mdi-numeric-1-box</v-icon>&nbsp;양도차익
                         </v-col>
                         <v-col>
-                          <v-icon x-small>mdi-currency-krw</v-icon>
-                          {{myMargin | comma}}
+                          <v-icon x-small color="pink lighten-4">mdi-currency-krw</v-icon>&nbsp;
+                          <span class="fc-pk">{{myMargin | comma}}</span>
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
@@ -117,11 +119,11 @@
                     <v-expansion-panel-header color="indigo darken-4">
                       <v-row no-gutters>
                         <v-col>
-                          <v-icon small>mdi-numeric-2-box</v-icon>&nbsp;장기보유 특별공제
+                          <v-icon small>mdi-numeric-2-box</v-icon>&nbsp;장기보유특별공제
                         </v-col>
                         <v-col>
-                          <v-icon x-small>mdi-currency-krw</v-icon>
-                          {{myDiscount | comma}}
+                          <v-icon x-small color="pink lighten-4">mdi-currency-krw</v-icon>&nbsp;
+                          <span class="fc-pk">{{myDiscount | comma}}</span>
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
@@ -255,8 +257,8 @@
                           <v-icon small>mdi-numeric-3-box</v-icon>&nbsp;양도소득금액
                         </v-col>
                         <v-col>
-                          <v-icon x-small>mdi-currency-krw</v-icon>
-                          {{myProfit | comma}}
+                          <v-icon x-small color="pink lighten-4">mdi-currency-krw</v-icon>&nbsp;
+                          <span class="fc-pk">{{myProfit | comma}}</span>
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
@@ -270,12 +272,17 @@
                           <v-icon small>mdi-numeric-4-box</v-icon>&nbsp;양도소득기본공제
                         </v-col>
                         <v-col>
-                          <v-icon x-small>mdi-currency-krw</v-icon>
-                          {{myBasicDiscount | comma}}
+                          <v-icon x-small color="pink lighten-4">mdi-currency-krw</v-icon>&nbsp;
+                          <span class="fc-pk">{{myBasicDiscount | comma}}</span>
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
-                    <v-expansion-panel-content color="indigo darken-3">기본공제 1인당 연간 250만원 한도</v-expansion-panel-content>
+                    <v-expansion-panel-content color="indigo darken-3">
+                      기본공제 1인당 연간 250만원 한도
+                      <br />
+                      <br />예) 부부 공동명의인 경우
+                      <br />250만원 × 2인 = 500만원 공제
+                    </v-expansion-panel-content>
                   </v-expansion-panel>
 
                   <v-expansion-panel>
@@ -285,8 +292,8 @@
                           <v-icon small>mdi-numeric-5-box</v-icon>&nbsp;과세표준
                         </v-col>
                         <v-col>
-                          <v-icon x-small>mdi-currency-krw</v-icon>
-                          {{myTaxBase | comma}}
+                          <v-icon x-small color="pink lighten-4">mdi-currency-krw</v-icon>&nbsp;
+                          <span class="fc-pk">{{myTaxBase | comma}}</span>
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
@@ -299,7 +306,9 @@
                         <v-col>
                           <v-icon small>mdi-numeric-6-box</v-icon>&nbsp;세율
                         </v-col>
-                        <v-col>{{Number(myTaxRate) * 100}}%</v-col>
+                        <v-col>
+                          <span class="fc-pk">{{Number(myTaxRate) * 100}}%</span>
+                        </v-col>
                       </v-row>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content color="indigo darken-3">
@@ -340,15 +349,15 @@
                             <th>42%</th>
                           </tr>
                           <tr>
-                            <th colspan="2">
-                              조정대상지역 1가구 2주택
+                            <th colspan="2" class="bg-tbl-3">
+                              <b>조정대상지역의 1가구 2주택</b>
                               <br />(입주권 포함, 2021년부터 분양권 포함)
                               <br />: 기본세율 + 10%
                             </th>
                           </tr>
                           <tr>
-                            <th colspan="2">
-                              조정대상지역 1가구 3주택
+                            <th colspan="2" class="bg-tbl-3">
+                              <b>조정대상지역의 1가구 3주택</b>
                               <br />(입주권 포함, 2021년부터 분양권 포함)
                               <br />: 기본세율 + 20%
                             </th>
@@ -420,8 +429,8 @@
                           <v-icon small>mdi-numeric-7-box</v-icon>&nbsp;산출 세액
                         </v-col>
                         <v-col>
-                          <v-icon x-small>mdi-currency-krw</v-icon>
-                          {{myTaxAmount | comma}}
+                          <v-icon x-small color="pink lighten-4">mdi-currency-krw</v-icon>&nbsp;
+                          <span class="fc-pk">{{myTaxAmount | comma}}</span>
                         </v-col>
                       </v-row>
                     </v-expansion-panel-header>
@@ -531,7 +540,7 @@ export default {
     myTaxBase: 0,
     myTaxRate: 0,
     myTaxAmount: 0,
-    myLocalTax: 0
+    myLocalTax: 0,
   }),
 
   filters: {
@@ -541,7 +550,7 @@ export default {
 
     number(val) {
       return Number(val);
-    }
+    },
   },
 
   mounted() {
@@ -589,7 +598,6 @@ export default {
     if (buyTax) {
       this.buyTax = buyTax;
     }
-    console.log(buyTax);
 
     var legalCost = localStorage.getItem("legalCost");
     if (legalCost) {
@@ -620,7 +628,6 @@ export default {
     if (joint) {
       this.joint = joint;
     }
-    console.log(joint);
 
     // 필요경비
     var totalCost =
@@ -683,6 +690,6 @@ export default {
     if (myLocalTax) {
       this.myLocalTax = myLocalTax;
     }
-  }
+  },
 };
 </script>
