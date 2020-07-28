@@ -144,6 +144,8 @@
                   type="number"
                   class="inputPrice"
                   pattern="\d*"
+                  inputmode="numeric"
+                  min="0"
                   hint="숫자만 입력해주세요"
                 ></v-text-field>
               </v-card-text>
@@ -171,6 +173,8 @@
                   clearable
                   type="number"
                   pattern="\d*"
+                  inputmode="numeric"
+                  min="0"
                   class="inputPrice"
                 ></v-text-field>
                 <!--currency-text-field label="취득가액 입력" v-model="buyPrice"/-->
@@ -192,7 +196,10 @@
                   outlined
                   prefix="₩"
                   clearable
+                  type="number"
                   pattern="\d*"
+                  inputmode="numeric"
+                  min="0"
                   v-model="buyTax"
                   append-icon="mdi-calculator"
                   @click:append="autoCal('tax')"
@@ -204,7 +211,10 @@
                   outlined
                   prefix="₩"
                   clearable
+                  type="number"
                   pattern="\d*"
+                  inputmode="numeric"
+                  min="0"
                   v-model="legalCost"
                 ></v-text-field>
 
@@ -214,7 +224,10 @@
                   outlined
                   prefix="₩"
                   clearable
+                  type="number"
                   pattern="\d*"
+                  inputmode="numeric"
+                  min="0"
                   v-model="brokerFeeBuy"
                   append-icon="mdi-calculator"
                   @click:append="autoCal('brokerFeeBuy')"
@@ -226,7 +239,10 @@
                   outlined
                   prefix="₩"
                   clearable
+                  type="number"
                   pattern="\d*"
+                  inputmode="numeric"
+                  min="0"
                   v-model="brokerFeeSell"
                   append-icon="mdi-calculator"
                   @click:append="autoCal('brokerFeeSell')"
@@ -238,7 +254,10 @@
                   outlined
                   prefix="₩"
                   clearable
+                  type="number"
                   pattern="\d*"
+                  inputmode="numeric"
+                  min="0"
                   v-model="bondLoss"
                 ></v-text-field>
                 <v-chip small label color="indigo lighten-1">**국민주택채권 매각차손 이란?</v-chip>
@@ -252,7 +271,10 @@
                   outlined
                   prefix="₩"
                   clearable
+                  type="number"
                   pattern="\d*"
+                  inputmode="numeric"
+                  min="0"
                   v-model="repairCost"
                 ></v-text-field>
                 <v-chip small label color="indigo lighten-1">**수리비 란?</v-chip>
